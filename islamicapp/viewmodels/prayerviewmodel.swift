@@ -11,10 +11,11 @@ class prayerviewmodel: ObservableObject {
     func load() async {
         loading = true
         do {
-            let data = try await prayerservice.shared.fetch()
+            let loc = try await prayerservice.shared.locate()
+            let data = try await prayerservice.shared.fetch(city: loc.city, country: loc.country)
             timings = data.timings
             hijri = "\(data.date.hijri.day) \(data.date.hijri.month.en) \(data.date.hijri.year)"
-            location = data.meta.timezone
+            location = "\(loc.city), \(loc.country)"
         } catch {
             print(error)
         }

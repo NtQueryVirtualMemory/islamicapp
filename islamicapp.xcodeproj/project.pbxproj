@@ -18,6 +18,7 @@
 		A1B2C3D4E5F6010101010130 /* prayermodel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F6010101010131 /* prayermodel.swift */; };
 		A1B2C3D4E5F6010101010132 /* prayerservice.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F6010101010133 /* prayerservice.swift */; };
 		A1B2C3D4E5F6010101010134 /* prayerviewmodel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F6010101010135 /* prayerviewmodel.swift */; };
+		A1B2C3D4E5F6010101010136 /* locationmodel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F6010101010137 /* locationmodel.swift */; };
 /* END PBXBuildFile */
 
 /* BEGIN PBXFileReference */
@@ -32,6 +33,7 @@
 		A1B2C3D4E5F6010101010131 /* prayermodel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = models/prayermodel.swift; sourceTree = "<group>"; };
 		A1B2C3D4E5F6010101010133 /* prayerservice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = services/prayerservice.swift; sourceTree = "<group>"; };
 		A1B2C3D4E5F6010101010135 /* prayerviewmodel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = viewmodels/prayerviewmodel.swift; sourceTree = "<group>"; };
+		A1B2C3D4E5F6010101010137 /* locationmodel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = models/locationmodel.swift; sourceTree = "<group>"; };
 /* END PBXFileReference */
 
 /* BEGIN PBXFrameworksBuildPhase */
@@ -67,6 +69,7 @@
 				A1B2C3D4E5F6010101010131 /* prayermodel.swift */,
 				A1B2C3D4E5F6010101010133 /* prayerservice.swift */,
 				A1B2C3D4E5F6010101010135 /* prayerviewmodel.swift */,
+				A1B2C3D4E5F6010101010137 /* locationmodel.swift */,
 			);
 			path = islamicapp;
 			sourceTree = "<group>";
@@ -157,6 +160,7 @@
 				A1B2C3D4E5F6010101010130 /* prayermodel.swift in Sources */,
 				A1B2C3D4E5F6010101010132 /* prayerservice.swift in Sources */,
 				A1B2C3D4E5F6010101010134 /* prayerviewmodel.swift in Sources */,
+				A1B2C3D4E5F6010101010136 /* locationmodel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
