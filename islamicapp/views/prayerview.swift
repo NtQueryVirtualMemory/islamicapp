@@ -2,20 +2,17 @@ import SwiftUI
 
 struct prayerview: View {
     @StateObject private var vm = prayerviewmodel()
+    @State private var showcontent = false
     
     var body: some View {
         ZStack {
-            Color(hex: "0F1419").ignoresSafeArea()
+            Color.midnight.ignoresSafeArea()
             
-            // Subtle background pattern or gradient
-            LinearGradient(
-                colors: [Color(hex: "0F1419"), Color(hex: "1A202C")],
-                startPoint: .top,
-                endPoint: .bottom
-            ).ignoresSafeArea()
+            // Animated Liquid Background
+            liquidbackground().ignoresSafeArea()
             
             ScrollView(showsIndicators: false) {
-                VStack(spacing: 30) {
+                VStack(spacing: 40) {
                     headersection
                     
                     if vm.loading {
@@ -25,53 +22,64 @@ struct prayerview: View {
                     }
                     
                     footersection
+                    
+                    // Extra space for floating tab bar
+                    Color.clear.frame(height: 100)
                 }
-                .padding(.vertical, 20)
+                .padding(.vertical, 40)
             }
         }
         .task {
             await vm.load()
+            withAnimation(.spring(response: 0.8, dampingFraction: 0.7)) {
+                showcontent = true
+            }
         }
     }
     
     private var headersection: some View {
-        VStack(alignment: .leading, spacing: 12) {
+        VStack(alignment: .leading, spacing: 15) {
             Text("Prayer Times")
-                .font(.system(size: 40, weight: .black, design: .rounded))
+                .font(.system(size: 48, weight: .black, design: .rounded))
                 .foregroundColor(.white)
+                .tracking(-2)
             
             if !vm.hijri.isEmpty {
-                HStack {
-                    Image(systemName: "calendar")
+                HStack(spacing: 10) {
+                    Image(systemName: "moon.stars.fill")
+                        .foregroundColor(.gold)
                     Text(vm.hijri)
                 }
                 .font(.system(.subheadline, design: .rounded))
-                .fontWeight(.medium)
-                .foregroundColor(Color(hex: "10B981"))
-                .padding(.horizontal, 12)
-                .padding(.vertical, 6)
-                .background(Color(hex: "10B981").opacity(0.1))
-                .cornerRadius(12)
+                .fontWeight(.black)
+                .foregroundColor(.white)
+                .padding(.horizontal, 20)
+                .padding(.vertical, 10)
+                .background(.liquidGlass)
+                .cornerRadius(25)
             }
         }
         .frame(maxWidth: .infinity, alignment: .leading)
-        .padding(.horizontal, 24)
+        .padding(.horizontal, 30)
+        .opacity(showcontent ? 1 : 0)
+        .offset(y: showcontent ? 0 : 20)
     }
     
     private var loadingsection: some View {
-        VStack {
+        VStack(spacing: 25) {
             ProgressView()
                 .scaleEffect(1.5)
-                .tint(Color(hex: "10B981"))
-                .padding(50)
-            Text("Locating...")
+                .tint(.gold)
+            Text("Locating your city...")
                 .font(.system(.body, design: .rounded))
-                .foregroundColor(.white.opacity(0.6))
+                .fontWeight(.bold)
+                .foregroundColor(.white.opacity(0.4))
         }
+        .padding(100)
     }
     
     private func timingssection(t: prayertimings) -> some View {
-        VStack(spacing: 18) {
+        VStack(spacing: 22) {
             prayercard(name: "Fajr", time: t.Fajr, icon: "sun.haze.fill", active: true)
             prayercard(name: "Sunrise", time: t.Sunrise, icon: "sunrise.fill")
             prayercard(name: "Dhuhr", time: t.Dhuhr, icon: "sun.max.fill")
@@ -80,25 +88,29 @@ struct prayerview: View {
             prayercard(name: "Isha", time: t.Isha, icon: "moon.stars.fill")
         }
         .padding(.horizontal, 24)
+        .opacity(showcontent ? 1 : 0)
+        .offset(y: showcontent ? 0 : 40)
     }
     
     private var footersection: some View {
-        VStack(spacing: 8) {
+        VStack(spacing: 12) {
             if !vm.location.isEmpty {
-                HStack(spacing: 6) {
-                    Image(systemName: "location.fill")
+                HStack(spacing: 8) {
+                    Image(systemName: "location.circle.fill")
+                        .foregroundColor(.gold)
                     Text(vm.location)
                 }
-                .font(.system(.caption, design: .rounded))
-                .fontWeight(.semibold)
-                .foregroundColor(.white.opacity(0.4))
+                .font(.system(.footnote, design: .rounded))
+                .fontWeight(.black)
+                .foregroundColor(.white.opacity(0.3))
             }
             
-            Text("Powered by Aladhan & ipinfo.io")
-                .font(.system(size: 10, weight: .medium, design: .rounded))
-                .foregroundColor(.white.opacity(0.2))
+            Text("LIQUID GLASS DESIGN")
+                .font(.system(size: 12, weight: .black, design: .rounded))
+                .foregroundColor(.gold.opacity(0.5))
+                .kerning(4)
+                .padding(.top, 30)
         }
-        .padding(.top, 10)
     }
 }
 
@@ -109,29 +121,29 @@ struct prayercard: View {
     var active: Bool = false
     
     var body: some View {
-        HStack(spacing: 20) {
+        HStack(spacing: 25) {
             ZStack {
                 Circle()
-                    .fill(active ? Color(hex: "10B981").opacity(0.2) : Color.white.opacity(0.05))
-                    .frame(width: 48, height: 48)
+                    .fill(active ? Color.gold.opacity(0.2) : Color.white.opacity(0.05))
+                    .frame(width: 56, height: 56)
                 
                 Image(systemName: icon)
-                    .font(.system(size: 20, weight: .semibold))
-                    .foregroundColor(active ? Color(hex: "10B981") : .white.opacity(0.7))
+                    .font(.system(size: 24, weight: .black))
+                    .foregroundColor(active ? .gold : .white.opacity(0.6))
             }
             
             Text(name)
-                .font(.system(size: 18, weight: .bold, design: .rounded))
+                .font(.system(size: 22, weight: .black, design: .rounded))
                 .foregroundColor(.white)
             
             Spacer()
             
             Text(time)
-                .font(.system(size: 22, weight: .bold, design: .monospaced))
-                .foregroundColor(active ? Color(hex: "10B981") : .white.opacity(0.9))
+                .font(.system(size: 26, weight: .black, design: .monospaced))
+                .foregroundColor(active ? .gold : .white.opacity(0.9))
         }
-        .padding(.vertical, 16)
-        .padding(.horizontal, 20)
+        .padding(.vertical, 22)
+        .padding(.horizontal, 28)
         .glass()
     }
 }
