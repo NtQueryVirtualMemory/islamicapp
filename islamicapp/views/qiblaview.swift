@@ -1,94 +1,101 @@
 import SwiftUI
 
 struct qiblaview: View {
+    @StateObject private var service = qiblaservice.shared
+    
     var body: some View {
         ZStack {
-            Color(hex: "0F1419").ignoresSafeArea()
+            Color.midnight.ignoresSafeArea()
+            liquidbackground().ignoresSafeArea()
             
-            VStack(spacing: 40) {
-                VStack(alignment: .leading, spacing: 8) {
+            VStack(spacing: 50) {
+                VStack(alignment: .leading, spacing: 12) {
                     Text("Qibla")
-                        .font(.system(size: 40, weight: .black, design: .rounded))
+                        .font(.system(size: 48, weight: .black, design: .rounded))
                         .foregroundColor(.white)
+                        .tracking(-2)
                     
-                    Text("Find the direction of the Kaaba")
+                    Text("Align with the Holy Kaaba")
                         .font(.system(.subheadline, design: .rounded))
-                        .foregroundColor(.white.opacity(0.5))
+                        .fontWeight(.bold)
+                        .foregroundColor(.white.opacity(0.4))
                 }
                 .frame(maxWidth: .infinity, alignment: .leading)
-                .padding(.horizontal, 24)
+                .padding(.horizontal, 30)
                 
                 Spacer()
                 
                 ZStack {
-                    // Outer decorative rings
+                    // Outer rings
                     Circle()
-                        .stroke(Color(hex: "10B981").opacity(0.1), lineWidth: 1)
-                        .frame(width: 340, height: 340)
+                        .stroke(Color.gold.opacity(0.1), lineWidth: 1)
+                        .frame(width: 360, height: 360)
                     
                     Circle()
                         .stroke(Color.white.opacity(0.05), lineWidth: 2)
-                        .frame(width: 300, height: 300)
-                    
-                    // Main compass body
-                    Circle()
-                        .fill(.ultraThinMaterial)
-                        .frame(width: 280, height: 280)
-                        .overlay(
-                            Circle()
-                                .stroke(
-                                    LinearGradient(
-                                        colors: [.white.opacity(0.2), .clear, .white.opacity(0.1)],
-                                        startPoint: .topLeading,
-                                        endPoint: .bottomTrailing
-                                    ),
-                                    lineWidth: 1
-                                )
-                        )
-                        .shadow(color: .black.opacity(0.4), radius: 20, x: 0, y: 15)
+                        .frame(width: 320, height: 320)
                     
                     // Compass markings
                     ForEach(0..<72) { i in
                         Rectangle()
-                            .fill(i % 18 == 0 ? Color(hex: "10B981") : Color.white.opacity(0.2))
-                            .frame(width: 2, height: i % 18 == 0 ? 15 : 8)
-                            .offset(y: -125)
+                            .fill(i % 18 == 0 ? Color.gold : Color.white.opacity(0.2))
+                            .frame(width: 2, height: i % 18 == 0 ? 20 : 10)
+                            .offset(y: -140)
                             .rotationEffect(.degrees(Double(i) * 5))
                     }
                     
-                    // Direction needle
+                    // Main body
+                    Circle()
+                        .fill(.liquidGlass)
+                        .frame(width: 280, height: 280)
+                        .shadow(color: .black.opacity(0.4), radius: 30, x: 0, y: 20)
+                    
+                    // Qibla Needle
                     VStack(spacing: 0) {
                         Image(systemName: "triangle.fill")
-                            .font(.system(size: 30))
-                            .foregroundColor(Color(hex: "10B981"))
+                            .font(.system(size: 36))
+                            .foregroundColor(.gold)
+                            .shadow(color: .gold.opacity(0.5), radius: 10)
                         
                         Rectangle()
-                            .fill(Color(hex: "10B981"))
-                            .frame(width: 4, height: 100)
-                            .cornerRadius(2)
+                            .fill(
+                                LinearGradient(
+                                    colors: [.gold, .gold.opacity(0.2)],
+                                    startPoint: .top,
+                                    endPoint: .bottom
+                                )
+                            )
+                            .frame(width: 6, height: 120)
+                            .cornerRadius(3)
                     }
-                    .offset(y: -50)
-                    .rotationEffect(.degrees(45))
+                    .offset(y: -60)
+                    .rotationEffect(.degrees(service.qiblabearing - service.heading))
                     
                     Circle()
-                        .fill(Color(hex: "0F1419"))
-                        .frame(width: 12, height: 12)
-                        .overlay(Circle().stroke(Color.white.opacity(0.5), lineWidth: 2))
+                        .fill(Color.midnight)
+                        .frame(width: 16, height: 16)
+                        .overlay(Circle().stroke(Color.gold, lineWidth: 3))
                 }
+                .rotationEffect(.degrees(-service.heading))
                 
-                VStack(spacing: 12) {
-                    Text("45° North East")
-                        .font(.system(size: 24, weight: .bold, design: .monospaced))
+                VStack(spacing: 15) {
+                    Text("\(Int(service.qiblabearing))°")
+                        .font(.system(size: 40, weight: .black, design: .monospaced))
                         .foregroundColor(.white)
                     
-                    Text("Align your device with the green needle")
+                    Text("Point your device towards the gold needle")
                         .font(.system(.subheadline, design: .rounded))
-                        .foregroundColor(.white.opacity(0.4))
+                        .fontWeight(.bold)
+                        .foregroundColor(.white.opacity(0.3))
+                        .multilineTextAlignment(.center)
+                        .padding(.horizontal, 50)
                 }
                 
                 Spacer()
+                
+                Color.clear.frame(height: 100)
             }
-            .padding(.vertical, 20)
+            .padding(.vertical, 40)
         }
     }
 }

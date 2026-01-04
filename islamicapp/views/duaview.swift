@@ -1,63 +1,71 @@
 import SwiftUI
 
 struct duaview: View {
+    let duas = duadatabase.shared.items
+    
     var body: some View {
         ZStack {
-            Color(hex: "0F1419").ignoresSafeArea()
+            Color.midnight.ignoresSafeArea()
+            liquidbackground().ignoresSafeArea()
             
             ScrollView(showsIndicators: false) {
-                VStack(spacing: 30) {
-                    VStack(alignment: .leading, spacing: 8) {
+                VStack(spacing: 35) {
+                    VStack(alignment: .leading, spacing: 12) {
                         Text("Duas")
-                            .font(.system(size: 40, weight: .black, design: .rounded))
+                            .font(.system(size: 48, weight: .black, design: .rounded))
                             .foregroundColor(.white)
+                            .tracking(-2)
                         
-                        Text("Supplications for every occasion")
+                        Text("Supplications for the faithful")
                             .font(.system(.subheadline, design: .rounded))
-                            .foregroundColor(.white.opacity(0.5))
+                            .fontWeight(.bold)
+                            .foregroundColor(.white.opacity(0.4))
                     }
                     .frame(maxWidth: .infinity, alignment: .leading)
-                    .padding(.horizontal, 24)
+                    .padding(.horizontal, 30)
                     
-                    LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())], spacing: 16) {
-                        duagriditem(title: "Morning", icon: "sun.max.fill", color: "FFB347")
-                        duagriditem(title: "Evening", icon: "moon.stars.fill", color: "778899")
-                        duagriditem(title: "Protection", icon: "shield.fill", color: "10B981")
-                        duagriditem(title: "Healing", icon: "heart.fill", color: "FF6B6B")
-                        duagriditem(title: "Travel", icon: "airplane", color: "4A90E2")
-                        duagriditem(title: "Success", icon: "star.fill", color: "F1C40F")
+                    LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())], spacing: 20) {
+                        ForEach(duas) { d in
+                            duacard(d: d)
+                        }
                     }
                     .padding(.horizontal, 24)
+                    
+                    Color.clear.frame(height: 100)
                 }
-                .padding(.vertical, 20)
+                .padding(.vertical, 40)
             }
         }
     }
 }
 
-struct duagriditem: View {
-    let title: String
-    let icon: String
-    let color: String
+struct duacard: View {
+    let d: dua
     
     var body: some View {
-        VStack(spacing: 16) {
+        VStack(spacing: 20) {
             ZStack {
                 Circle()
-                    .fill(Color(hex: color).opacity(0.15))
-                    .frame(width: 56, height: 56)
+                    .fill(Color(hex: d.color).opacity(0.15))
+                    .frame(width: 64, height: 64)
                 
-                Image(systemName: icon)
-                    .font(.system(size: 24, weight: .semibold))
-                    .foregroundColor(Color(hex: color))
+                Image(systemName: d.icon)
+                    .font(.system(size: 28, weight: .black))
+                    .foregroundColor(Color(hex: d.color))
             }
             
-            Text(title)
-                .font(.system(size: 16, weight: .bold, design: .rounded))
-                .foregroundColor(.white)
+            VStack(spacing: 4) {
+                Text(d.title)
+                    .font(.system(size: 18, weight: .black, design: .rounded))
+                    .foregroundColor(.white)
+                
+                Text(d.category)
+                    .font(.system(size: 12, weight: .bold, design: .rounded))
+                    .foregroundColor(.white.opacity(0.3))
+            }
         }
         .frame(maxWidth: .infinity)
-        .padding(.vertical, 24)
+        .padding(.vertical, 30)
         .glass()
     }
 }

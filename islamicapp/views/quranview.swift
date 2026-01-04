@@ -1,76 +1,91 @@
 import SwiftUI
 
 struct quranview: View {
+    @StateObject private var vm = quranviewmodel()
+    
     var body: some View {
         ZStack {
-            Color(hex: "0F1419").ignoresSafeArea()
+            Color.midnight.ignoresSafeArea()
+            liquidbackground().ignoresSafeArea()
             
             ScrollView(showsIndicators: false) {
-                VStack(spacing: 30) {
-                    VStack(alignment: .leading, spacing: 8) {
+                VStack(spacing: 35) {
+                    VStack(alignment: .leading, spacing: 12) {
                         Text("Holy Quran")
-                            .font(.system(size: 40, weight: .black, design: .rounded))
+                            .font(.system(size: 48, weight: .black, design: .rounded))
                             .foregroundColor(.white)
+                            .tracking(-2)
                         
-                        Text("Read and listen to the divine word")
+                        Text("Divine guidance for humanity")
                             .font(.system(.subheadline, design: .rounded))
-                            .foregroundColor(.white.opacity(0.5))
+                            .fontWeight(.bold)
+                            .foregroundColor(.white.opacity(0.4))
                     }
                     .frame(maxWidth: .infinity, alignment: .leading)
-                    .padding(.horizontal, 24)
+                    .padding(.horizontal, 30)
                     
-                    VStack(spacing: 16) {
-                        ForEach(1...10, id: \.self) { index in
-                            surahcard(number: index, name: "Surah \(index)", arabic: "سورة")
+                    if vm.loading {
+                        ProgressView()
+                            .scaleEffect(1.5)
+                            .tint(.gold)
+                            .padding(100)
+                    } else {
+                        VStack(spacing: 18) {
+                            ForEach(vm.surahs) { s in
+                                surahcard(s: s)
+                            }
                         }
+                        .padding(.horizontal, 24)
                     }
-                    .padding(.horizontal, 24)
+                    
+                    Color.clear.frame(height: 100)
                 }
-                .padding(.vertical, 20)
+                .padding(.vertical, 40)
             }
+        }
+        .task {
+            await vm.load()
         }
     }
 }
 
 struct surahcard: View {
-    let number: Int
-    let name: String
-    let arabic: String
+    let s: surah
     
     var body: some View {
         HStack(spacing: 20) {
             ZStack {
                 Circle()
                     .fill(Color.white.opacity(0.05))
-                    .frame(width: 40, height: 40)
+                    .frame(width: 48, height: 48)
                 
-                Text("\(number)")
-                    .font(.system(size: 14, weight: .bold, design: .monospaced))
-                    .foregroundColor(Color(hex: "10B981"))
+                Text("\(s.number)")
+                    .font(.system(size: 16, weight: .black, design: .monospaced))
+                    .foregroundColor(.gold)
             }
             
             VStack(alignment: .leading, spacing: 4) {
-                Text(name)
-                    .font(.system(size: 18, weight: .bold, design: .rounded))
+                Text(s.englishName)
+                    .font(.system(size: 20, weight: .black, design: .rounded))
                     .foregroundColor(.white)
                 
-                Text("Meccan • 7 Verses")
-                    .font(.system(size: 12, weight: .medium, design: .rounded))
+                Text("\(s.revelationType) • \(s.numberOfAyahs) Verses")
+                    .font(.system(size: 12, weight: .bold, design: .rounded))
                     .foregroundColor(.white.opacity(0.4))
             }
             
             Spacer()
             
-            Text(arabic)
-                .font(.system(size: 20, weight: .bold))
-                .foregroundColor(.white.opacity(0.8))
+            Text(s.name)
+                .font(.system(size: 22, weight: .bold))
+                .foregroundColor(.white.opacity(0.9))
             
             Image(systemName: "chevron.right")
-                .font(.system(size: 14, weight: .bold))
-                .foregroundColor(.white.opacity(0.2))
+                .font(.system(size: 14, weight: .black))
+                .foregroundColor(.white.opacity(0.1))
         }
-        .padding(.vertical, 18)
-        .padding(.horizontal, 20)
+        .padding(.vertical, 20)
+        .padding(.horizontal, 24)
         .glass()
     }
 }
