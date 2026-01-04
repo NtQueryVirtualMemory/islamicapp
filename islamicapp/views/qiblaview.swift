@@ -46,7 +46,7 @@ struct qiblaview: View {
                     
                     // Main body
                     Circle()
-                        .fill(.liquidGlass)
+                        .fill(.ultraThinMaterial)
                         .frame(width: 280, height: 280)
                         .shadow(color: .black.opacity(0.4), radius: 30, x: 0, y: 20)
                     
@@ -54,13 +54,13 @@ struct qiblaview: View {
                     VStack(spacing: 0) {
                         Image(systemName: "triangle.fill")
                             .font(.system(size: 36))
-                            .foregroundColor(.gold)
-                            .shadow(color: .gold.opacity(0.5), radius: 10)
+                            .foregroundColor(Color.gold)
+                            .shadow(color: Color.gold.opacity(0.5), radius: 10)
                         
                         Rectangle()
                             .fill(
                                 LinearGradient(
-                                    colors: [.gold, .gold.opacity(0.2)],
+                                    colors: [Color.gold, Color.gold.opacity(0.2)],
                                     startPoint: .top,
                                     endPoint: .bottom
                                 )

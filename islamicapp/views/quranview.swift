@@ -27,7 +27,7 @@ struct quranview: View {
                     if vm.loading {
                         ProgressView()
                             .scaleEffect(1.5)
-                            .tint(.gold)
+                            .tint(Color.gold)
                             .padding(100)
                     } else {
                         VStack(spacing: 18) {
@@ -61,7 +61,7 @@ struct surahcard: View {
                 
                 Text("\(s.number)")
                     .font(.system(size: 16, weight: .black, design: .monospaced))
-                    .foregroundColor(.gold)
+                    .foregroundColor(Color.gold)
             }
             
             VStack(alignment: .leading, spacing: 4) {

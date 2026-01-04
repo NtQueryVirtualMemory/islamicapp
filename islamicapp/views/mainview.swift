@@ -36,7 +36,7 @@ struct mainview: View {
             }
             .padding(.horizontal, 30)
             .padding(.vertical, 15)
-            .background(.liquidGlass)
+            .background(.ultraThinMaterial)
             .cornerRadius(40)
             .padding(.horizontal, 20)
             .padding(.bottom, 30)
@@ -57,7 +57,7 @@ struct mainview: View {
                 Text(label)
                     .font(.system(size: 10, weight: .bold, design: .rounded))
             }
-            .foregroundColor(selectedtab == index ? .gold : .white.opacity(0.4))
+                .foregroundColor(selectedtab == index ? Color.gold : .white.opacity(0.4))
             .scaleEffect(selectedtab == index ? 1.1 : 1.0)
         }
     }

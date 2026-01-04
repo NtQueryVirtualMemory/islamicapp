@@ -47,7 +47,7 @@ struct prayerview: View {
             if !vm.hijri.isEmpty {
                 HStack(spacing: 10) {
                     Image(systemName: "moon.stars.fill")
-                        .foregroundColor(.gold)
+                        .foregroundColor(Color.gold)
                     Text(vm.hijri)
                 }
                 .font(.system(.subheadline, design: .rounded))
@@ -55,7 +55,7 @@ struct prayerview: View {
                 .foregroundColor(.white)
                 .padding(.horizontal, 20)
                 .padding(.vertical, 10)
-                .background(.liquidGlass)
+                .background(.ultraThinMaterial)
                 .cornerRadius(25)
             }
         }
@@ -69,7 +69,7 @@ struct prayerview: View {
         VStack(spacing: 25) {
             ProgressView()
                 .scaleEffect(1.5)
-                .tint(.gold)
+                .tint(Color.gold)
             Text("Locating your city...")
                 .font(.system(.body, design: .rounded))
                 .fontWeight(.bold)
@@ -97,7 +97,7 @@ struct prayerview: View {
             if !vm.location.isEmpty {
                 HStack(spacing: 8) {
                     Image(systemName: "location.circle.fill")
-                        .foregroundColor(.gold)
+                        .foregroundColor(Color.gold)
                     Text(vm.location)
                 }
                 .font(.system(.footnote, design: .rounded))
@@ -107,7 +107,7 @@ struct prayerview: View {
             
             Text("LIQUID GLASS DESIGN")
                 .font(.system(size: 12, weight: .black, design: .rounded))
-                .foregroundColor(.gold.opacity(0.5))
+                .foregroundColor(Color.gold.opacity(0.5))
                 .kerning(4)
                 .padding(.top, 30)
         }
@@ -129,7 +129,7 @@ struct prayercard: View {
                 
                 Image(systemName: icon)
                     .font(.system(size: 24, weight: .black))
-                    .foregroundColor(active ? .gold : .white.opacity(0.6))
+                    .foregroundColor(active ? Color.gold : .white.opacity(0.6))
             }
             
             Text(name)
@@ -140,7 +140,7 @@ struct prayercard: View {
             
             Text(time)
                 .font(.system(size: 26, weight: .black, design: .monospaced))
-                .foregroundColor(active ? .gold : .white.opacity(0.9))
+                .foregroundColor(active ? Color.gold : .white.opacity(0.9))
         }
         .padding(.vertical, 22)
         .padding(.horizontal, 28)
