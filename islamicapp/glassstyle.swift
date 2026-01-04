@@ -30,7 +30,7 @@ struct appcolors {
     static let texttertiary = Color.white.opacity(0.35)
 }
 
-struct glasscard: ViewModifier {
+struct glasscardmodifier: ViewModifier {
     var padding: CGFloat = 20
     
     func body(content: Content) -> some View {
@@ -65,7 +65,7 @@ struct glasscard: ViewModifier {
     }
 }
 
-struct glasspill: ViewModifier {
+struct glasspillmodifier: ViewModifier {
     func body(content: Content) -> some View {
         content
             .padding(.horizontal, 16)
@@ -83,10 +83,10 @@ struct glasspill: ViewModifier {
 
 extension View {
     func glasscard(padding: CGFloat = 20) -> some View {
-        modifier(glasscard(padding: padding))
+        modifier(glasscardmodifier(padding: padding))
     }
     
     func glasspill() -> some View {
-        modifier(glasspill())
+        modifier(glasspillmodifier())
     }
 }
