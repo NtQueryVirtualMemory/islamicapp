@@ -15,6 +15,9 @@
 		A1B2C3D4E5F6010101010111 /* duaview.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F6010101010112 /* duaview.swift */; };
 		A1B2C3D4E5F6010101010113 /* settingsview.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F6010101010114 /* settingsview.swift */; };
 		A1B2C3D4E5F6010101010115 /* glassstyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F6010101010116 /* glassstyle.swift */; };
+		A1B2C3D4E5F6010101010130 /* prayermodel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F6010101010131 /* prayermodel.swift */; };
+		A1B2C3D4E5F6010101010132 /* prayerservice.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F6010101010133 /* prayerservice.swift */; };
+		A1B2C3D4E5F6010101010134 /* prayerviewmodel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F6010101010135 /* prayerviewmodel.swift */; };
 /* END PBXBuildFile */
 
 /* BEGIN PBXFileReference */
@@ -26,6 +29,9 @@
 		A1B2C3D4E5F6010101010112 /* duaview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = views/duaview.swift; sourceTree = "<group>"; };
 		A1B2C3D4E5F6010101010114 /* settingsview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = views/settingsview.swift; sourceTree = "<group>"; };
 		A1B2C3D4E5F6010101010116 /* glassstyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = styles/glassstyle.swift; sourceTree = "<group>"; };
+		A1B2C3D4E5F6010101010131 /* prayermodel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = models/prayermodel.swift; sourceTree = "<group>"; };
+		A1B2C3D4E5F6010101010133 /* prayerservice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = services/prayerservice.swift; sourceTree = "<group>"; };
+		A1B2C3D4E5F6010101010135 /* prayerviewmodel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = viewmodels/prayerviewmodel.swift; sourceTree = "<group>"; };
 /* END PBXFileReference */
 
 /* BEGIN PBXFrameworksBuildPhase */
@@ -58,6 +64,9 @@
 				A1B2C3D4E5F6010101010112 /* duaview.swift */,
 				A1B2C3D4E5F6010101010114 /* settingsview.swift */,
 				A1B2C3D4E5F6010101010116 /* glassstyle.swift */,
+				A1B2C3D4E5F6010101010131 /* prayermodel.swift */,
+				A1B2C3D4E5F6010101010133 /* prayerservice.swift */,
+				A1B2C3D4E5F6010101010135 /* prayerviewmodel.swift */,
 			);
 			path = islamicapp;
 			sourceTree = "<group>";
@@ -145,6 +154,9 @@
 				A1B2C3D4E5F6010101010111 /* duaview.swift in Sources */,
 				A1B2C3D4E5F6010101010113 /* settingsview.swift in Sources */,
 				A1B2C3D4E5F6010101010115 /* glassstyle.swift in Sources */,
+				A1B2C3D4E5F6010101010130 /* prayermodel.swift in Sources */,
+				A1B2C3D4E5F6010101010132 /* prayerservice.swift in Sources */,
+				A1B2C3D4E5F6010101010134 /* prayerviewmodel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
