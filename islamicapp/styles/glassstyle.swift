@@ -1,19 +1,39 @@
 import SwiftUI
 
 struct glassstyle: ViewModifier {
-    var radius: CGFloat = 20
-    var opacity: Double = 0.7
+    var radius: CGFloat = 24
+    var opacity: Double = 0.15
     
     func body(content: Content) -> some View {
         content
-            .background(.ultraThinMaterial)
+            .background(
+                ZStack {
+                    BlurView(style: .systemUltraThinMaterialDark)
+                    Color.white.opacity(opacity)
+                }
+            )
             .cornerRadius(radius)
             .overlay(
                 RoundedRectangle(cornerRadius: radius)
-                    .stroke(.white.opacity(0.2), lineWidth: 1)
+                    .stroke(
+                        LinearGradient(
+                            colors: [.white.opacity(0.3), .white.opacity(0.05), .black.opacity(0.1)],
+                            startPoint: .topLeading,
+                            endPoint: .bottomTrailing
+                        ),
+                        lineWidth: 1
+                    )
             )
-            .shadow(color: .black.opacity(0.1), radius: 10, x: 0, y: 5)
+            .shadow(color: .black.opacity(0.3), radius: 15, x: 0, y: 10)
     }
+}
+
+struct BlurView: UIViewRepresentable {
+    var style: UIBlurEffect.Style
+    func makeUIView(context: Context) -> UIVisualEffectView {
+        UIVisualEffectView(effect: UIBlurEffect(style: style))
+    }
+    func updateUIView(_ uiView: UIVisualEffectView, context: Context) {}
 }
 
 extension View {

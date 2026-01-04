@@ -2,47 +2,62 @@ import SwiftUI
 
 struct duaview: View {
     var body: some View {
-        ScrollView {
-            VStack(spacing: 20) {
-                Text("duas")
-                    .font(.system(size: 34, weight: .bold, design: .rounded))
-                    .foregroundColor(.white)
+        ZStack {
+            Color(hex: "0F1419").ignoresSafeArea()
+            
+            ScrollView(showsIndicators: false) {
+                VStack(spacing: 30) {
+                    VStack(alignment: .leading, spacing: 8) {
+                        Text("Duas")
+                            .font(.system(size: 40, weight: .black, design: .rounded))
+                            .foregroundColor(.white)
+                        
+                        Text("Supplications for every occasion")
+                            .font(.system(.subheadline, design: .rounded))
+                            .foregroundColor(.white.opacity(0.5))
+                    }
                     .frame(maxWidth: .infinity, alignment: .leading)
-                    .padding(.horizontal)
-                
-                VStack(spacing: 12) {
-                    duacard(title: "morning", icon: "sun.max.fill")
-                    duacard(title: "evening", icon: "moon.stars.fill")
-                    duacard(title: "protection", icon: "shield.fill")
-                    duacard(title: "healing", icon: "heart.fill")
+                    .padding(.horizontal, 24)
+                    
+                    LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())], spacing: 16) {
+                        duagriditem(title: "Morning", icon: "sun.max.fill", color: "FFB347")
+                        duagriditem(title: "Evening", icon: "moon.stars.fill", color: "778899")
+                        duagriditem(title: "Protection", icon: "shield.fill", color: "10B981")
+                        duagriditem(title: "Healing", icon: "heart.fill", color: "FF6B6B")
+                        duagriditem(title: "Travel", icon: "airplane", color: "4A90E2")
+                        duagriditem(title: "Success", icon: "star.fill", color: "F1C40F")
+                    }
+                    .padding(.horizontal, 24)
                 }
-                .padding()
+                .padding(.vertical, 20)
             }
         }
-        .background(Color(hex: "0F1419"))
     }
 }
 
-struct duacard: View {
+struct duagriditem: View {
     let title: String
     let icon: String
+    let color: String
     
     var body: some View {
-        HStack {
-            Image(systemName: icon)
-                .foregroundColor(Color(hex: "10B981"))
-                .frame(width: 40)
+        VStack(spacing: 16) {
+            ZStack {
+                Circle()
+                    .fill(Color(hex: color).opacity(0.15))
+                    .frame(width: 56, height: 56)
+                
+                Image(systemName: icon)
+                    .font(.system(size: 24, weight: .semibold))
+                    .foregroundColor(Color(hex: color))
+            }
             
             Text(title)
-                .font(.headline)
+                .font(.system(size: 16, weight: .bold, design: .rounded))
                 .foregroundColor(.white)
-            
-            Spacer()
-            
-            Image(systemName: "chevron.right")
-                .foregroundColor(.white.opacity(0.3))
         }
-        .padding()
+        .frame(maxWidth: .infinity)
+        .padding(.vertical, 24)
         .glass()
     }
 }
