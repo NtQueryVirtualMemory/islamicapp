@@ -6,113 +6,104 @@
 	objectVersion = 56;
 	objects = {
 
-/* BEGIN PBXBuildFile */
-		A1B2C3D4E5F6010101010101 /* islamicapp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F6010101010102 /* islamicapp.swift */; };
-		A1B2C3D4E5F6010101010103 /* mainview.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F6010101010104 /* mainview.swift */; };
-		A1B2C3D4E5F6010101010105 /* prayerview.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F6010101010106 /* prayerview.swift */; };
-		A1B2C3D4E5F6010101010107 /* quranview.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F6010101010108 /* quranview.swift */; };
-		A1B2C3D4E5F6010101010109 /* qiblaview.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F6010101010110 /* qiblaview.swift */; };
-		A1B2C3D4E5F6010101010111 /* duaview.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F6010101010112 /* duaview.swift */; };
-		A1B2C3D4E5F6010101010113 /* settingsview.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F6010101010114 /* settingsview.swift */; };
-		A1B2C3D4E5F6010101010115 /* glassstyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F6010101010116 /* glassstyle.swift */; };
-		A1B2C3D4E5F6010101010130 /* prayermodel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F6010101010131 /* prayermodel.swift */; };
-		A1B2C3D4E5F6010101010132 /* prayerservice.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F6010101010133 /* prayerservice.swift */; };
-		A1B2C3D4E5F6010101010134 /* prayerviewmodel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F6010101010135 /* prayerviewmodel.swift */; };
-		A1B2C3D4E5F6010101010136 /* locationmodel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F6010101010137 /* locationmodel.swift */; };
-		A1B2C3D4E5F6010101010138 /* quranmodel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F6010101010139 /* quranmodel.swift */; };
-		A1B2C3D4E5F6010101010140 /* quranservice.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F6010101010141 /* quranservice.swift */; };
-		A1B2C3D4E5F6010101010142 /* quranviewmodel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F6010101010143 /* quranviewmodel.swift */; };
-		A1B2C3D4E5F6010101010144 /* qiblaservice.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F6010101010145 /* qiblaservice.swift */; };
-		A1B2C3D4E5F6010101010146 /* duamodel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F6010101010147 /* duamodel.swift */; };
-		A1B2C3D4E5F6010101010148 /* notificationservice.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F6010101010149 /* notificationservice.swift */; };
-		A1B2C3D4E5F6010101010150 /* liquidbackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F6010101010151 /* liquidbackground.swift */; };
-/* END PBXBuildFile */
+/* Begin PBXBuildFile section */
+		B10001 /* islamicapp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10001; };
+		B10002 /* mainview.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10002; };
+		B10003 /* prayerview.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10003; };
+		B10004 /* quranview.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10004; };
+		B10005 /* qiblaview.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10005; };
+		B10006 /* duaview.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10006; };
+		B10007 /* settingsview.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10007; };
+		B10008 /* glassstyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10008; };
+		B10009 /* liquidbackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10009; };
+		B10010 /* prayerservice.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10010; };
+		B10011 /* prayerviewmodel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10011; };
+		B10012 /* quranmodel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10012; };
+		B10013 /* quranservice.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10013; };
+		B10014 /* quranviewmodel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10014; };
+		B10015 /* qiblaservice.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10015; };
+		B10016 /* duamodel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10016; };
+/* End PBXBuildFile section */
 
-/* BEGIN PBXFileReference */
-		A1B2C3D4E5F6010101010102 /* islamicapp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = islamicapp.swift; sourceTree = "<group>"; };
-		A1B2C3D4E5F6010101010104 /* mainview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = views/mainview.swift; sourceTree = "<group>"; };
-		A1B2C3D4E5F6010101010106 /* prayerview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = views/prayerview.swift; sourceTree = "<group>"; };
-		A1B2C3D4E5F6010101010108 /* quranview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = views/quranview.swift; sourceTree = "<group>"; };
-		A1B2C3D4E5F6010101010110 /* qiblaview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = views/qiblaview.swift; sourceTree = "<group>"; };
-		A1B2C3D4E5F6010101010112 /* duaview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = views/duaview.swift; sourceTree = "<group>"; };
-		A1B2C3D4E5F6010101010114 /* settingsview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = views/settingsview.swift; sourceTree = "<group>"; };
-		A1B2C3D4E5F6010101010116 /* glassstyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = styles/glassstyle.swift; sourceTree = "<group>"; };
-		A1B2C3D4E5F6010101010131 /* prayermodel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = models/prayermodel.swift; sourceTree = "<group>"; };
-		A1B2C3D4E5F6010101010133 /* prayerservice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = services/prayerservice.swift; sourceTree = "<group>"; };
-		A1B2C3D4E5F6010101010135 /* prayerviewmodel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = viewmodels/prayerviewmodel.swift; sourceTree = "<group>"; };
-		A1B2C3D4E5F6010101010137 /* locationmodel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = models/locationmodel.swift; sourceTree = "<group>"; };
-		A1B2C3D4E5F6010101010139 /* quranmodel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = models/quranmodel.swift; sourceTree = "<group>"; };
-		A1B2C3D4E5F6010101010141 /* quranservice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = services/quranservice.swift; sourceTree = "<group>"; };
-		A1B2C3D4E5F6010101010143 /* quranviewmodel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = viewmodels/quranviewmodel.swift; sourceTree = "<group>"; };
-		A1B2C3D4E5F6010101010145 /* qiblaservice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = services/qiblaservice.swift; sourceTree = "<group>"; };
-		A1B2C3D4E5F6010101010147 /* duamodel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = models/duamodel.swift; sourceTree = "<group>"; };
-		A1B2C3D4E5F6010101010149 /* notificationservice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = services/notificationservice.swift; sourceTree = "<group>"; };
-		A1B2C3D4E5F6010101010151 /* liquidbackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = styles/liquidbackground.swift; sourceTree = "<group>"; };
-/* END PBXFileReference */
+/* Begin PBXFileReference section */
+		F10001 /* islamicapp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = islamicapp.swift; sourceTree = "<group>"; };
+		F10002 /* mainview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mainview.swift; sourceTree = "<group>"; };
+		F10003 /* prayerview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = prayerview.swift; sourceTree = "<group>"; };
+		F10004 /* quranview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = quranview.swift; sourceTree = "<group>"; };
+		F10005 /* qiblaview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = qiblaview.swift; sourceTree = "<group>"; };
+		F10006 /* duaview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = duaview.swift; sourceTree = "<group>"; };
+		F10007 /* settingsview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = settingsview.swift; sourceTree = "<group>"; };
+		F10008 /* glassstyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = glassstyle.swift; sourceTree = "<group>"; };
+		F10009 /* liquidbackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = liquidbackground.swift; sourceTree = "<group>"; };
+		F10010 /* prayerservice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = prayerservice.swift; sourceTree = "<group>"; };
+		F10011 /* prayerviewmodel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = prayerviewmodel.swift; sourceTree = "<group>"; };
+		F10012 /* quranmodel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = quranmodel.swift; sourceTree = "<group>"; };
+		F10013 /* quranservice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = quranservice.swift; sourceTree = "<group>"; };
+		F10014 /* quranviewmodel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = quranviewmodel.swift; sourceTree = "<group>"; };
+		F10015 /* qiblaservice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = qiblaservice.swift; sourceTree = "<group>"; };
+		F10016 /* duamodel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = duamodel.swift; sourceTree = "<group>"; };
+		P10001 /* islamicapp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = islamicapp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
 
-/* BEGIN PBXFrameworksBuildPhase */
-		A1B2C3D4E5F6010101010117 /* Frameworks */ = {
+/* Begin PBXFrameworksBuildPhase section */
+		FR0001 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-/* END PBXFrameworksBuildPhase */
+/* End PBXFrameworksBuildPhase section */
 
-/* BEGIN PBXGroup */
-		A1B2C3D4E5F6010101010118 = {
+/* Begin PBXGroup section */
+		G10001 = {
 			isa = PBXGroup;
 			children = (
-				A1B2C3D4E5F6010101010119 /* islamicapp */,
-				A1B2C3D4E5F6010101010120 /* Products */,
+				G10002 /* islamicapp */,
+				G10003 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		A1B2C3D4E5F6010101010119 /* islamicapp */ = {
+		G10002 /* islamicapp */ = {
 			isa = PBXGroup;
 			children = (
-				A1B2C3D4E5F6010101010102 /* islamicapp.swift */,
-				A1B2C3D4E5F6010101010104 /* mainview.swift */,
-				A1B2C3D4E5F6010101010106 /* prayerview.swift */,
-				A1B2C3D4E5F6010101010108 /* quranview.swift */,
-				A1B2C3D4E5F6010101010110 /* qiblaview.swift */,
-				A1B2C3D4E5F6010101010112 /* duaview.swift */,
-				A1B2C3D4E5F6010101010114 /* settingsview.swift */,
-				A1B2C3D4E5F6010101010116 /* glassstyle.swift */,
-				A1B2C3D4E5F6010101010131 /* prayermodel.swift */,
-				A1B2C3D4E5F6010101010133 /* prayerservice.swift */,
-				A1B2C3D4E5F6010101010135 /* prayerviewmodel.swift */,
-				A1B2C3D4E5F6010101010137 /* locationmodel.swift */,
-				A1B2C3D4E5F6010101010139 /* quranmodel.swift */,
-				A1B2C3D4E5F6010101010141 /* quranservice.swift */,
-				A1B2C3D4E5F6010101010143 /* quranviewmodel.swift */,
-				A1B2C3D4E5F6010101010145 /* qiblaservice.swift */,
-				A1B2C3D4E5F6010101010147 /* duamodel.swift */,
-				A1B2C3D4E5F6010101010149 /* notificationservice.swift */,
-				A1B2C3D4E5F6010101010151 /* liquidbackground.swift */,
+				F10001 /* islamicapp.swift */,
+				F10002 /* mainview.swift */,
+				F10003 /* prayerview.swift */,
+				F10004 /* quranview.swift */,
+				F10005 /* qiblaview.swift */,
+				F10006 /* duaview.swift */,
+				F10007 /* settingsview.swift */,
+				F10008 /* glassstyle.swift */,
+				F10009 /* liquidbackground.swift */,
+				F10010 /* prayerservice.swift */,
+				F10011 /* prayerviewmodel.swift */,
+				F10012 /* quranmodel.swift */,
+				F10013 /* quranservice.swift */,
+				F10014 /* quranviewmodel.swift */,
+				F10015 /* qiblaservice.swift */,
+				F10016 /* duamodel.swift */,
 			);
 			path = islamicapp;
 			sourceTree = "<group>";
 		};
-		A1B2C3D4E5F6010101010120 /* Products */ = {
+		G10003 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				A1B2C3D4E5F6010101010121 /* islamicapp.app */,
+				P10001 /* islamicapp.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-/* END PBXGroup */
+/* End PBXGroup section */
 
-/* BEGIN PBXNativeTarget */
-		A1B2C3D4E5F6010101010122 /* islamicapp */ = {
+/* Begin PBXNativeTarget section */
+		T10001 /* islamicapp */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A1B2C3D4E5F6010101010123 /* Build configuration list for PBXNativeTarget "islamicapp" */;
+			buildConfigurationList = CL0002 /* Build configuration list for PBXNativeTarget "islamicapp" */;
 			buildPhases = (
-				A1B2C3D4E5F6010101010124 /* Sources */,
-				A1B2C3D4E5F6010101010117 /* Frameworks */,
-				A1B2C3D4E5F6010101010125 /* Resources */,
+				S10001 /* Sources */,
+				FR0001 /* Frameworks */,
 			);
 			buildRules = (
 			);
@@ -120,24 +111,25 @@
 			);
 			name = islamicapp;
 			productName = islamicapp;
-			productReference = A1B2C3D4E5F6010101010121 /* islamicapp.app */;
+			productReference = P10001 /* islamicapp.app */;
 			productType = "com.apple.product-type.application";
 		};
-/* END PBXNativeTarget */
+/* End PBXNativeTarget section */
 
-/* BEGIN PBXProject */
-		A1B2C3D4E5F6010101010126 /* Project object */ = {
+/* Begin PBXProject section */
+		PR0001 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1500;
-				LastUpgradeCheck = 1500;
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1600;
+				LastUpgradeCheck = 1600;
 				TargetAttributes = {
-					A1B2C3D4E5F6010101010122 = {
-						CreatedOnToolsVersion = 15.0;
+					T10001 = {
+						CreatedOnToolsVersion = 16.0;
 					};
 				};
 			};
-			buildConfigurationList = A1B2C3D4E5F6010101010127 /* Build configuration list for PBXProject "islamicapp" */;
+			buildConfigurationList = CL0001 /* Build configuration list for PBXProject "islamicapp" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -145,60 +137,48 @@
 				en,
 				Base,
 			);
-			mainGroup = A1B2C3D4E5F6010101010118;
-			productRefGroup = A1B2C3D4E5F6010101010120 /* Products */;
+			mainGroup = G10001;
+			productRefGroup = G10003 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				A1B2C3D4E5F6010101010122 /* islamicapp */,
+				T10001 /* islamicapp */,
 			);
 		};
-/* END PBXProject */
+/* End PBXProject section */
 
-/* BEGIN PBXResourcesBuildPhase */
-		A1B2C3D4E5F6010101010125 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* END PBXResourcesBuildPhase */
-
-/* BEGIN PBXSourcesBuildPhase */
-		A1B2C3D4E5F6010101010124 /* Sources */ = {
+/* Begin PBXSourcesBuildPhase section */
+		S10001 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A1B2C3D4E5F6010101010101 /* islamicapp.swift in Sources */,
-				A1B2C3D4E5F6010101010103 /* mainview.swift in Sources */,
-				A1B2C3D4E5F6010101010105 /* prayerview.swift in Sources */,
-				A1B2C3D4E5F6010101010107 /* quranview.swift in Sources */,
-				A1B2C3D4E5F6010101010109 /* qiblaview.swift in Sources */,
-				A1B2C3D4E5F6010101010111 /* duaview.swift in Sources */,
-				A1B2C3D4E5F6010101010113 /* settingsview.swift in Sources */,
-				A1B2C3D4E5F6010101010115 /* glassstyle.swift in Sources */,
-				A1B2C3D4E5F6010101010130 /* prayermodel.swift in Sources */,
-				A1B2C3D4E5F6010101010132 /* prayerservice.swift in Sources */,
-				A1B2C3D4E5F6010101010134 /* prayerviewmodel.swift in Sources */,
-				A1B2C3D4E5F6010101010136 /* locationmodel.swift in Sources */,
-				A1B2C3D4E5F6010101010138 /* quranmodel.swift in Sources */,
-				A1B2C3D4E5F6010101010140 /* quranservice.swift in Sources */,
-				A1B2C3D4E5F6010101010142 /* quranviewmodel.swift in Sources */,
-				A1B2C3D4E5F6010101010144 /* qiblaservice.swift in Sources */,
-				A1B2C3D4E5F6010101010146 /* duamodel.swift in Sources */,
-				A1B2C3D4E5F6010101010148 /* notificationservice.swift in Sources */,
-				A1B2C3D4E5F6010101010150 /* liquidbackground.swift in Sources */,
+				B10001 /* islamicapp.swift in Sources */,
+				B10002 /* mainview.swift in Sources */,
+				B10003 /* prayerview.swift in Sources */,
+				B10004 /* quranview.swift in Sources */,
+				B10005 /* qiblaview.swift in Sources */,
+				B10006 /* duaview.swift in Sources */,
+				B10007 /* settingsview.swift in Sources */,
+				B10008 /* glassstyle.swift in Sources */,
+				B10009 /* liquidbackground.swift in Sources */,
+				B10010 /* prayerservice.swift in Sources */,
+				B10011 /* prayerviewmodel.swift in Sources */,
+				B10012 /* quranmodel.swift in Sources */,
+				B10013 /* quranservice.swift in Sources */,
+				B10014 /* quranviewmodel.swift in Sources */,
+				B10015 /* qiblaservice.swift in Sources */,
+				B10016 /* duamodel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-/* END PBXSourcesBuildPhase */
+/* End PBXSourcesBuildPhase section */
 
-/* BEGIN XCBuildConfiguration */
-		A1B2C3D4E5F6010101010128 /* Debug */ = {
+/* Begin XCBuildConfiguration section */
+		C10001 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -226,11 +206,13 @@
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu11;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -245,19 +227,21 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
-		A1B2C3D4E5F6010101010129 /* Release */ = {
+		C10002 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -285,11 +269,13 @@
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu11;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
@@ -298,31 +284,38 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
-				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
-		A1B2C3D4E5F601010101012A /* Debug */ = {
+		C20001 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = Islamic;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We need your location to calculate accurate prayer times and Qibla direction.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.manus.islamicapp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.islamicapp.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -330,22 +323,29 @@
 			};
 			name = Debug;
 		};
-		A1B2C3D4E5F601010101012B /* Release */ = {
+		C20002 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = Islamic;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We need your location to calculate accurate prayer times and Qibla direction.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.manus.islamicapp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.islamicapp.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -353,28 +353,28 @@
 			};
 			name = Release;
 		};
-/* END XCBuildConfiguration */
+/* End XCBuildConfiguration section */
 
-/* BEGIN XCConfigurationList */
-		A1B2C3D4E5F6010101010127 /* Build configuration list for PBXProject "islamicapp" */ = {
+/* Begin XCConfigurationList section */
+		CL0001 /* Build configuration list for PBXProject "islamicapp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				A1B2C3D4E5F6010101010128 /* Debug */,
-				A1B2C3D4E5F6010101010129 /* Release */,
+				C10001 /* Debug */,
+				C10002 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A1B2C3D4E5F6010101010123 /* Build configuration list for PBXNativeTarget "islamicapp" */ = {
+		CL0002 /* Build configuration list for PBXNativeTarget "islamicapp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				A1B2C3D4E5F601010101012A /* Debug */,
-				A1B2C3D4E5F601010101012B /* Release */,
+				C20001 /* Debug */,
+				C20002 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-/* END XCConfigurationList */
+/* End XCConfigurationList section */
 	};
-	rootObject = A1B2C3D4E5F6010101010126 /* Project object */;
+	rootObject = PR0001 /* Project object */;
 }

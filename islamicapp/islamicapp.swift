@@ -5,6 +5,7 @@ struct islamicapp: App {
     var body: some Scene {
         WindowGroup {
             mainview()
+                .preferredColorScheme(.dark)
         }
     }
 }
