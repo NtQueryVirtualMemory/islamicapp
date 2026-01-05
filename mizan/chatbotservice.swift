@@ -88,6 +88,8 @@ Always provide responses with respect and accuracy. When citing Quran or Hadith,
         request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.setValue("Bearer \(apikey)", forHTTPHeaderField: "Authorization")
+        request.setValue("https://github.com/NtQueryVirtualMemory/islamicapp", forHTTPHeaderField: "HTTP-Referer")
+        request.setValue("Mizan Islamic App", forHTTPHeaderField: "X-Title")
         
         var apiMessages: [[String: String]] = [
             ["role": "system", "content": systemPrompt]
