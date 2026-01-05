@@ -82,11 +82,12 @@ class locationservice: NSObject, ObservableObject, CLLocationManagerDelegate {
                 DispatchQueue.main.async {
                     self?.city = json.city
                     self?.country = json.country
-                    if let loc = json.loc.split(separator: ",").map({ Double($0) }), loc.count == 2 {
-                        self?.latitude = loc[0]
-                        self?.longitude = loc[1]
-                        self?.defaults?.set(loc[0], forKey: "latitude")
-                        self?.defaults?.set(loc[1], forKey: "longitude")
+                    let coords = json.loc.split(separator: ",").compactMap({ Double($0) })
+                    if coords.count == 2 {
+                        self?.latitude = coords[0]
+                        self?.longitude = coords[1]
+                        self?.defaults?.set(coords[0], forKey: "latitude")
+                        self?.defaults?.set(coords[1], forKey: "longitude")
                     }
                 }
             }

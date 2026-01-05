@@ -100,8 +100,9 @@ class qiblaservice: NSObject, ObservableObject, CLLocationManagerDelegate {
             
             DispatchQueue.main.async {
                 self?.location = "\(json.city), \(json.country)"
-                if let loc = json.loc.split(separator: ",").map({ Double($0) }), loc.count == 2 {
-                    let userloc = CLLocation(latitude: loc[0]!, longitude: loc[1]!)
+                let coords = json.loc.split(separator: ",").compactMap({ Double($0) })
+                if coords.count == 2 {
+                    let userloc = CLLocation(latitude: coords[0], longitude: coords[1])
                     let kaaba = CLLocation(latitude: self?.kaabalat ?? 0, longitude: self?.kaabalonlon ?? 0)
                     self?.distance = userloc.distance(from: kaaba) / 1000
                     self?.qibladirection = self?.calculatebearing(from: userloc.coordinate, to: kaaba.coordinate) ?? 0

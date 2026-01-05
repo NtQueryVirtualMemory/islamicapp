@@ -12,7 +12,7 @@ class prayerviewmodel: ObservableObject {
     @Published var countdown: String = ""
     
     private var timer: Timer?
-    private let locationservice = locationservice.shared
+    private lazy var locationservice = locationservice.shared
     private let defaults = UserDefaults(suiteName: "group.dev.cyendd.mizan")
     
     func load() async {
