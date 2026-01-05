@@ -12,18 +12,17 @@ class prayerviewmodel: ObservableObject {
     @Published var countdown: String = ""
     
     private var timer: Timer?
-    private lazy var locationservice = locationservice.shared
     private let defaults = UserDefaults(suiteName: "group.dev.cyendd.mizan")
     
     func load() async {
         loading = true
         
-        locationservice.request()
-        locationservice.start()
+        locationservice.shared.request()
+        locationservice.shared.start()
         
         try? await Task.sleep(nanoseconds: 2_000_000_000)
         
-        guard let lat = locationservice.latitude, let lon = locationservice.longitude else {
+        guard let lat = locationservice.shared.latitude, let lon = locationservice.shared.longitude else {
             loading = false
             return
         }
@@ -34,7 +33,7 @@ class prayerviewmodel: ObservableObject {
             let data = try await prayerservice.shared.fetch(latitude: lat, longitude: lon, method: method == 0 ? 2 : method)
             timings = data.timings
             hijri = "\(data.date.hijri.day) \(data.date.hijri.month.en) \(data.date.hijri.year)"
-            location = "\(locationservice.city), \(locationservice.country)"
+            location = "\(locationservice.shared.city), \(locationservice.shared.country)"
             updatecurrent()
             starttimer()
             
