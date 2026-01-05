@@ -48,7 +48,7 @@
 		F10017 /* notificationservice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = notificationservice.swift; sourceTree = "<group>"; };
 		F10018 /* surahdetailviewmodel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = surahdetailviewmodel.swift; sourceTree = "<group>"; };
 		F10019 /* audioservice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = audioservice.swift; sourceTree = "<group>"; };
-		P10001 /* islamicapp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = islamicapp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		P10001 /* islamicapp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = mizan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,7 +70,7 @@
 			);
 			sourceTree = "<group>";
 		};
-		G10002 /* islamicapp */ = {
+		G10002 /* mizan */ = {
 			isa = PBXGroup;
 			children = (
 				F10001,
@@ -93,7 +93,7 @@
 				F10018,
 				F10019,
 			);
-			path = islamicapp;
+			path = mizan;
 			sourceTree = "<group>";
 		};
 		G10003 /* Products */ = {
