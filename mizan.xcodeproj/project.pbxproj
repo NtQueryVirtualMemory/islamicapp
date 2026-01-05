@@ -37,6 +37,8 @@
 		B20004 /* mizanwidget.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = P20001; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 B10025 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F10026; };
 B20005 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F20005; };
+		B10027 /* chatbotservice.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10027 /* chatbotservice.swift */; };
+		B10028 /* chatbotview.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10028 /* chatbotview.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -97,6 +99,8 @@ B20005 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F2000
 		P20001 /* mizanwidget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = mizanwidget.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 F10026 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 F20005 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F10027 /* chatbotservice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = chatbotservice.swift; sourceTree = "<group>"; };
+		F10028 /* chatbotview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = chatbotview.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -158,7 +162,9 @@ F20005 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = fold
 				F10024,
 				F10025,
 				F10026,
-			);
+			
+				F10027 /* chatbotservice.swift */,
+				F10028 /* chatbotview.swift */,);
 			path = mizan;
 			sourceTree = "<group>";
 		};
@@ -295,7 +301,9 @@ F20005 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = fold
 				B10022,
 				B10023,
 				B10024,
-			);
+			
+				B10027 /* chatbotservice.swift in Sources */,
+				B10028 /* chatbotview.swift in Sources */,);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		BP0003 /* Sources */ = {
