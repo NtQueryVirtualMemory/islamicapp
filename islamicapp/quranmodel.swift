@@ -18,3 +18,8 @@ struct ayah: Codable, Identifiable {
     
     var id: Int { number }
 }
+
+struct ayahpair {
+    let arabic: ayah
+    let transliteration: ayah
+}

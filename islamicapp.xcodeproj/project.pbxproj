@@ -1,4 +1,4 @@
-// !$*UTF8*$!
+
 {
 	archiveVersion = 1;
 	classes = {
@@ -23,6 +23,8 @@
 		B10014 /* quranviewmodel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10014; };
 		B10015 /* qiblaservice.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10015; };
 		B10016 /* duamodel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10016; };
+		B10017 /* notificationservice.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10017; };
+		B10018 /* surahdetailviewmodel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10018; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +44,8 @@
 		F10014 /* quranviewmodel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = quranviewmodel.swift; sourceTree = "<group>"; };
 		F10015 /* qiblaservice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = qiblaservice.swift; sourceTree = "<group>"; };
 		F10016 /* duamodel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = duamodel.swift; sourceTree = "<group>"; };
+		F10017 /* notificationservice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = notificationservice.swift; sourceTree = "<group>"; };
+		F10018 /* surahdetailviewmodel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = surahdetailviewmodel.swift; sourceTree = "<group>"; };
 		P10001 /* islamicapp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = islamicapp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -59,30 +63,32 @@
 		G10001 = {
 			isa = PBXGroup;
 			children = (
-				G10002 /* islamicapp */,
-				G10003 /* Products */,
+				G10002,
+				G10003,
 			);
 			sourceTree = "<group>";
 		};
 		G10002 /* islamicapp */ = {
 			isa = PBXGroup;
 			children = (
-				F10001 /* islamicapp.swift */,
-				F10002 /* mainview.swift */,
-				F10003 /* prayerview.swift */,
-				F10004 /* quranview.swift */,
-				F10005 /* qiblaview.swift */,
-				F10006 /* duaview.swift */,
-				F10007 /* settingsview.swift */,
-				F10008 /* glassstyle.swift */,
-				F10009 /* liquidbackground.swift */,
-				F10010 /* prayerservice.swift */,
-				F10011 /* prayerviewmodel.swift */,
-				F10012 /* quranmodel.swift */,
-				F10013 /* quranservice.swift */,
-				F10014 /* quranviewmodel.swift */,
-				F10015 /* qiblaservice.swift */,
-				F10016 /* duamodel.swift */,
+				F10001,
+				F10002,
+				F10003,
+				F10004,
+				F10005,
+				F10006,
+				F10007,
+				F10008,
+				F10009,
+				F10010,
+				F10011,
+				F10012,
+				F10013,
+				F10014,
+				F10015,
+				F10016,
+				F10017,
+				F10018,
 			);
 			path = islamicapp;
 			sourceTree = "<group>";
@@ -90,7 +96,7 @@
 		G10003 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				P10001 /* islamicapp.app */,
+				P10001,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -100,10 +106,11 @@
 /* Begin PBXNativeTarget section */
 		T10001 /* islamicapp */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = CL0002 /* Build configuration list for PBXNativeTarget "islamicapp" */;
+			buildConfigurationList = CL0001;
 			buildPhases = (
-				S10001 /* Sources */,
-				FR0001 /* Frameworks */,
+				BP0001,
+				FR0001,
+				BP0002,
 			);
 			buildRules = (
 			);
@@ -111,7 +118,7 @@
 			);
 			name = islamicapp;
 			productName = islamicapp;
-			productReference = P10001 /* islamicapp.app */;
+			productReference = P10001;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -121,15 +128,10 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1600;
-				LastUpgradeCheck = 1600;
-				TargetAttributes = {
-					T10001 = {
-						CreatedOnToolsVersion = 16.0;
-					};
-				};
+				LastSwiftUpdateCheck = 1500;
+				LastUpgradeCheck = 1500;
 			};
-			buildConfigurationList = CL0001 /* Build configuration list for PBXProject "islamicapp" */;
+			buildConfigurationList = CL0002;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -138,43 +140,55 @@
 				Base,
 			);
 			mainGroup = G10001;
-			productRefGroup = G10003 /* Products */;
+			productRefGroup = G10003;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				T10001 /* islamicapp */,
+				T10001,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		S10001 /* Sources */ = {
+		BP0001 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B10001 /* islamicapp.swift in Sources */,
-				B10002 /* mainview.swift in Sources */,
-				B10003 /* prayerview.swift in Sources */,
-				B10004 /* quranview.swift in Sources */,
-				B10005 /* qiblaview.swift in Sources */,
-				B10006 /* duaview.swift in Sources */,
-				B10007 /* settingsview.swift in Sources */,
-				B10008 /* glassstyle.swift in Sources */,
-				B10009 /* liquidbackground.swift in Sources */,
-				B10010 /* prayerservice.swift in Sources */,
-				B10011 /* prayerviewmodel.swift in Sources */,
-				B10012 /* quranmodel.swift in Sources */,
-				B10013 /* quranservice.swift in Sources */,
-				B10014 /* quranviewmodel.swift in Sources */,
-				B10015 /* qiblaservice.swift in Sources */,
-				B10016 /* duamodel.swift in Sources */,
+				B10001,
+				B10002,
+				B10003,
+				B10004,
+				B10005,
+				B10006,
+				B10007,
+				B10008,
+				B10009,
+				B10010,
+				B10011,
+				B10012,
+				B10013,
+				B10014,
+				B10015,
+				B10016,
+				B10017,
+				B10018,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXResourcesBuildPhase section */
+		BP0002 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
 /* Begin XCBuildConfiguration section */
-		C10001 /* Debug */ = {
+		BC0001 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -237,7 +251,7 @@
 			};
 			name = Debug;
 		};
-		C10002 /* Release */ = {
+		BC0002 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -293,7 +307,7 @@
 			};
 			name = Release;
 		};
-		C20001 /* Debug */ = {
+		BC0003 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -301,21 +315,19 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = "";
-				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_CFBundleDisplayName = Islamic;
-				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We need your location to calculate accurate prayer times and Qibla direction.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.islamicapp.app;
+				PRODUCT_BUNDLE_IDENTIFIER = com.islamicapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -323,7 +335,7 @@
 			};
 			name = Debug;
 		};
-		C20002 /* Release */ = {
+		BC0004 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -331,21 +343,19 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = "";
-				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_CFBundleDisplayName = Islamic;
-				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We need your location to calculate accurate prayer times and Qibla direction.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.islamicapp.app;
+				PRODUCT_BUNDLE_IDENTIFIER = com.islamicapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -356,25 +366,25 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		CL0001 /* Build configuration list for PBXProject "islamicapp" */ = {
+		CL0001 /* Build configuration list for PBXNativeTarget "islamicapp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				C10001 /* Debug */,
-				C10002 /* Release */,
+				BC0003,
+				BC0004,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		CL0002 /* Build configuration list for PBXNativeTarget "islamicapp" */ = {
+		CL0002 /* Build configuration list for PBXProject "islamicapp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				C20001 /* Debug */,
-				C20002 /* Release */,
+				BC0001,
+				BC0002,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = PR0001 /* Project object */;
+	rootObject = PR0001;
 }

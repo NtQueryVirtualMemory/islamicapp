@@ -203,6 +203,20 @@ struct duadetailsheet: View {
                     .glasscard(padding: 24)
                     
                     VStack(spacing: 20) {
+                        Text("Transliteration")
+                            .font(.system(size: 12, weight: .bold, design: .rounded))
+                            .foregroundStyle(appcolors.accent)
+                        
+                        Text(dua.transliteration)
+                            .font(.system(size: 18, weight: .medium, design: .rounded))
+                            .foregroundStyle(appcolors.textsecondary)
+                            .multilineTextAlignment(.center)
+                            .lineSpacing(8)
+                            .italic()
+                    }
+                    .glasscard(padding: 24)
+                    
+                    VStack(spacing: 20) {
                         Text("Translation")
                             .font(.system(size: 12, weight: .bold, design: .rounded))
                             .foregroundStyle(appcolors.accent)

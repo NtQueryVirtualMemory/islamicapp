@@ -54,6 +54,24 @@ struct prayerview: View {
                 .glasspill()
             }
             
+            if !vm.countdown.isEmpty {
+                HStack(spacing: 10) {
+                    Image(systemName: "clock.fill")
+                        .font(.system(size: 14, weight: .semibold))
+                        .foregroundStyle(appcolors.accent)
+                    
+                    VStack(alignment: .leading, spacing: 2) {
+                        Text("Next: \(vm.nextprayer)")
+                            .font(.system(size: 12, weight: .semibold, design: .rounded))
+                            .foregroundStyle(appcolors.text)
+                        Text(vm.countdown)
+                            .font(.system(size: 16, weight: .bold, design: .rounded))
+                            .foregroundStyle(appcolors.accent)
+                    }
+                }
+                .glasspill()
+            }
+            
             if !vm.location.isEmpty {
                 HStack(spacing: 6) {
                     Image(systemName: "location.fill")

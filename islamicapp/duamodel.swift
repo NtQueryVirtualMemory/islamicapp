@@ -4,6 +4,7 @@ struct dua: Identifiable {
     let id = UUID()
     let title: String
     let arabic: String
+    let transliteration: String
     let translation: String
     let category: String
     let icon: String
@@ -17,6 +18,7 @@ class duadatabase {
         dua(
             title: "Morning Remembrance",
             arabic: "أَصْبَحْنَا وَأَصْبَحَ الْمُلْكُ لِلَّهِ، وَالْحَمْدُ لِلَّهِ، لاَ إِلَـهَ إِلاَّ اللهُ وَحْدَهُ لاَ شَرِيكَ لَهُ",
+            transliteration: "Asbahna wa asbahal mulku lillah, walhamdu lillah, la ilaha illallahu wahdahu la sharika lah",
             translation: "We have reached the morning and at this very time all sovereignty belongs to Allah. All praise is for Allah. None has the right to be worshipped except Allah, alone, without any partner.",
             category: "Morning & Evening",
             icon: "sun.and.horizon.fill",
@@ -25,6 +27,7 @@ class duadatabase {
         dua(
             title: "Evening Remembrance",
             arabic: "أَمْسَيْنَا وَأَمْسَى الْمُلْكُ للهِ، وَالْحَمْدُ للهِ، لَا إِلَهَ إِلاَّ اللهُ وَحْدَهُ لَا شَرِيكَ لَهُ",
+            transliteration: "Amsayna wa amsal mulku lillah, walhamdu lillah, la ilaha illallahu wahdahu la sharika lah",
             translation: "We have reached the evening and at this very time all sovereignty belongs to Allah. All praise is for Allah. None has the right to be worshipped except Allah, alone, without any partner.",
             category: "Morning & Evening",
             icon: "moon.stars.fill",
@@ -33,6 +36,7 @@ class duadatabase {
         dua(
             title: "Protection from Evil",
             arabic: "أَعُوذُ بِكَلِمَاتِ اللهِ التَّامَّاتِ مِنْ شَرِّ مَا خَلَقَ",
+            transliteration: "A'udhu bikalimatillahit-tammati min sharri ma khalaq",
             translation: "I seek refuge in the perfect words of Allah from the evil of what He has created.",
             category: "Protection",
             icon: "shield.fill",
@@ -41,6 +45,7 @@ class duadatabase {
         dua(
             title: "Seeking Forgiveness",
             arabic: "أَسْتَغْفِرُ اللهَ الْعَظِيمَ الَّذِي لَا إِلَهَ إِلَّا هُوَ الْحَيُّ الْقَيُّومُ وَأَتُوبُ إِلَيْهِ",
+            transliteration: "Astaghfirullaha al-'Adheem alladhi la ilaha illa Huwa al-Hayy al-Qayyum wa atubu ilayh",
             translation: "I seek forgiveness from Allah, the Magnificent, whom there is none worthy of worship except Him, the Living, the Sustainer, and I repent to Him.",
             category: "Forgiveness",
             icon: "heart.fill",
@@ -49,6 +54,7 @@ class duadatabase {
         dua(
             title: "Before Sleeping",
             arabic: "بِاسْمِكَ اللَّهُمَّ أَمُوتُ وَأَحْيَا",
+            transliteration: "Bismika Allahumma amutu wa ahya",
             translation: "In Your name, O Allah, I die and I live.",
             category: "Daily",
             icon: "bed.double.fill",
@@ -57,6 +63,7 @@ class duadatabase {
         dua(
             title: "Upon Waking",
             arabic: "الْحَمْدُ لِلَّهِ الَّذِي أَحْيَانَا بَعْدَ مَا أَمَاتَنَا وَإِلَيْهِ النُّشُورُ",
+            transliteration: "Alhamdu lillahil-ladhi ahyana ba'da ma amatana wa ilayhin-nushur",
             translation: "All praise is for Allah who gave us life after having taken it from us and unto Him is the resurrection.",
             category: "Daily",
             icon: "sunrise.fill",
@@ -65,6 +72,7 @@ class duadatabase {
         dua(
             title: "Before Eating",
             arabic: "بِسْمِ اللهِ",
+            transliteration: "Bismillah",
             translation: "In the name of Allah.",
             category: "Daily",
             icon: "fork.knife",
@@ -73,6 +81,7 @@ class duadatabase {
         dua(
             title: "After Eating",
             arabic: "الْحَمْدُ لِلَّهِ الَّذِي أَطْعَمَنِي هَذَا وَرَزَقَنِيهِ مِنْ غَيْرِ حَوْلٍ مِنِّي وَلَا قُوَّةٍ",
+            transliteration: "Alhamdu lillahil-ladhi at'amani hadha wa razaqaneehi min ghayri hawlin minni wa la quwwah",
             translation: "All praise is for Allah who fed me this and provided it for me without any might or power from myself.",
             category: "Daily",
             icon: "hand.thumbsup.fill",
@@ -81,6 +90,7 @@ class duadatabase {
         dua(
             title: "Entering Mosque",
             arabic: "اللَّهُمَّ افْتَحْ لِي أَبْوَابَ رَحْمَتِكَ",
+            transliteration: "Allahumma iftah li abwaba rahmatik",
             translation: "O Allah, open the gates of Your mercy for me.",
             category: "Mosque",
             icon: "building.columns.fill",
@@ -89,6 +99,7 @@ class duadatabase {
         dua(
             title: "For Guidance",
             arabic: "اللَّهُمَّ اهْدِنِي وَسَدِّدْنِي",
+            transliteration: "Allahumma ihdini wa saddidni",
             translation: "O Allah, guide me and make me steadfast.",
             category: "Guidance",
             icon: "star.fill",
@@ -97,6 +108,7 @@ class duadatabase {
         dua(
             title: "For Health",
             arabic: "اللَّهُمَّ عَافِنِي فِي بَدَنِي، اللَّهُمَّ عَافِنِي فِي سَمْعِي، اللَّهُمَّ عَافِنِي فِي بَصَرِي",
+            transliteration: "Allahumma 'afini fi badani, Allahumma 'afini fi sam'i, Allahumma 'afini fi basari",
             translation: "O Allah, grant my body health. O Allah, grant my hearing health. O Allah, grant my sight health.",
             category: "Health",
             icon: "cross.fill",
@@ -105,6 +117,7 @@ class duadatabase {
         dua(
             title: "For Travel",
             arabic: "سُبْحَانَ الَّذِي سَخَّرَ لَنَا هَذَا وَمَا كُنَّا لَهُ مُقْرِنِينَ وَإِنَّا إِلَى رَبِّنَا لَمُنْقَلِبُونَ",
+            transliteration: "Subhanal-ladhi sakhkhara lana hadha wa ma kunna lahu muqrinin wa inna ila Rabbina lamunqalibun",
             translation: "Glory to Him who has subjected this to us, and we could never have it by our efforts. And to our Lord we shall return.",
             category: "Travel",
             icon: "airplane",

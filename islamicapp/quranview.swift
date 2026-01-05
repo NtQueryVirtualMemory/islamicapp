@@ -226,10 +226,10 @@ struct surahdetailview: View {
     
     private var ayahlist: some View {
         LazyVStack(spacing: 16) {
-            ForEach(vm.ayahs) { a in
-                VStack(alignment: .trailing, spacing: 12) {
+            ForEach(vm.ayahs, id: \.arabic.id) { pair in
+                VStack(alignment: .trailing, spacing: 16) {
                     HStack {
-                        Text("\(a.numberInSurah)")
+                        Text("\(pair.arabic.numberInSurah)")
                             .font(.system(size: 12, weight: .bold, design: .monospaced))
                             .foregroundStyle(appcolors.accent)
                             .frame(width: 28, height: 28)
@@ -239,11 +239,17 @@ struct surahdetailview: View {
                         Spacer()
                     }
                     
-                    Text(a.text)
+                    Text(pair.arabic.text)
                         .font(.system(size: 24, weight: .medium))
                         .foregroundStyle(appcolors.text)
                         .multilineTextAlignment(.trailing)
                         .lineSpacing(12)
+                    
+                    Text(pair.transliteration.text)
+                        .font(.system(size: 14, weight: .medium, design: .rounded))
+                        .foregroundStyle(appcolors.textsecondary)
+                        .multilineTextAlignment(.trailing)
+                        .italic()
                 }
                 .glasscard(padding: 20)
             }
