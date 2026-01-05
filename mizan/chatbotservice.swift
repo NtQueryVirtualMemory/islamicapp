@@ -22,7 +22,7 @@ class chatbotservice: ObservableObject {
     @Published var loading = false
     
     private let apikey = "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"
-    private let model = "nvidia/llama-3.1-nemotron-70b-instruct:free"
+    private let model = "nvidia/nemotron-3-nano-30b-a3b:free"
     private let systemPrompt = """
 You are an Islamic knowledge assistant. You provide accurate, respectful, and helpful information about Islam, including:
 - Quran verses and their meanings
