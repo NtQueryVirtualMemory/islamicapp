@@ -311,6 +311,7 @@ F20005 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = fold
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B10025,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -318,6 +319,7 @@ F20005 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = fold
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B20005,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
