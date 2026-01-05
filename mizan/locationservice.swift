@@ -17,6 +17,12 @@ class locationservice: NSObject, ObservableObject, CLLocationManagerDelegate {
         super.init()
         manager.delegate = self
         manager.desiredAccuracy = kCLLocationAccuracyBest
+        
+        // Load saved coordinates from shared UserDefaults
+        if let lat = defaults?.double(forKey: "latitude"), let lon = defaults?.double(forKey: "longitude"), lat != 0 {
+            latitude = lat
+            longitude = lon
+        }
     }
     
     func request() {
@@ -38,11 +44,18 @@ class locationservice: NSObject, ObservableObject, CLLocationManagerDelegate {
             start()
         case .denied, .restricted:
             authorized = false
+            // Immediately fallback to IP location when GPS is denied
             fallbacktoip()
         case .notDetermined:
             request()
+            // Also try IP fallback while waiting for user decision
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) { [weak self] in
+                if self?.latitude == nil {
+                    self?.fallbacktoip()
+                }
+            }
         @unknown default:
-            break
+            fallbacktoip()
         }
     }
     

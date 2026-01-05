@@ -98,7 +98,7 @@ struct audioplayerview: View {
                 .shadow(color: .black.opacity(0.3), radius: 20, x: 0, y: -5)
         }
         .padding(.horizontal, 16)
-        .padding(.bottom, 100)
+        .padding(.bottom, 120)
         .onTapGesture {
             withAnimation(.spring(response: 0.4, dampingFraction: 0.8)) {
                 expanded = true
@@ -219,7 +219,7 @@ struct audioplayerview: View {
                 .shadow(color: .black.opacity(0.5), radius: 40, x: 0, y: -10)
         }
         .padding(.horizontal, 16)
-        .padding(.bottom, 100)
+        .padding(.bottom, 120)
     }
     
     private var draghandle: some View {

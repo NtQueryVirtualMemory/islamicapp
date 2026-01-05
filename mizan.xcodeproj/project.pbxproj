@@ -35,6 +35,8 @@
 		B20002 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F20002; };
 		B20003 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F20003; };
 		B20004 /* mizanwidget.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = P20001; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+B10025 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F10026; };
+B20005 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F20005; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -93,6 +95,8 @@
 		F20004 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		P10001 /* mizan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = mizan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		P20001 /* mizanwidget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = mizanwidget.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+F10026 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+F20005 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
