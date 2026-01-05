@@ -79,20 +79,12 @@ struct qiblaview: View {
             .rotationEffect(.degrees(-compass.heading))
             
             Circle()
-                .fill(.ultraThinMaterial)
+                .fill(appcolors.cardbackground)
                 .frame(width: 220, height: 220)
                 .overlay(
                     Circle()
-                        .stroke(
-                            LinearGradient(
-                                colors: [.white.opacity(0.2), .white.opacity(0.05)],
-                                startPoint: .topLeading,
-                                endPoint: .bottomTrailing
-                            ),
-                            lineWidth: 1
-                        )
+                        .stroke(appcolors.cardborder, lineWidth: 1)
                 )
-                .shadow(color: .black.opacity(0.3), radius: 20, x: 0, y: 10)
             
             VStack(spacing: 0) {
                 Image(systemName: "location.north.fill")

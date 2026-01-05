@@ -155,6 +155,7 @@ struct quranview: View {
 struct surahdetailview: View {
     let surah: surah
     @StateObject private var vm = surahdetailviewmodel()
+    @StateObject private var audio = audioservice.shared
     @Environment(\.dismiss) private var dismiss
     
     var body: some View {
@@ -237,6 +238,17 @@ struct surahdetailview: View {
                             .clipShape(Circle())
                         
                         Spacer()
+                        
+                        if let audiourl = pair.audio {
+                            Button {
+                                audio.toggle(url: audiourl)
+                            } label: {
+                                Image(systemName: audio.playing && audio.currenturl == audiourl ? "pause.circle.fill" : "play.circle.fill")
+                                    .font(.system(size: 24, weight: .semibold))
+                                    .foregroundStyle(appcolors.accent)
+                            }
+                            .buttonStyle(.plain)
+                        }
                     }
                     
                     Text(pair.arabic.text)

@@ -150,9 +150,10 @@ struct duaview: View {
     }
 }
 
-struct duadetailsheet: View {
+struct duadetailview: View {
     let dua: dua
-    @Environment(\.dismiss) private var dismiss
+    @StateObject private var audio = audioservice.shared
+    @Environment(\.dismiss) private var dismisss
     
     var body: some View {
         ZStack {
@@ -188,6 +189,24 @@ struct duadetailsheet: View {
                     Text(dua.title)
                         .font(.system(size: 28, weight: .bold, design: .rounded))
                         .foregroundStyle(appcolors.text)
+                    
+                    if let audiourl = dua.audio {
+                        Button {
+                            audio.toggle(url: audiourl)
+                        } label: {
+                            HStack(spacing: 8) {
+                                Image(systemName: audio.playing && audio.currenturl == audiourl ? "pause.circle.fill" : "play.circle.fill")
+                                    .font(.system(size: 20, weight: .semibold))
+                                Text(audio.playing && audio.currenturl == audiourl ? "Pause" : "Play Audio")
+                                    .font(.system(size: 14, weight: .semibold, design: .rounded))
+                            }
+                            .foregroundStyle(appcolors.accent)
+                            .frame(height: 44)
+                            .frame(maxWidth: .infinity)
+                            .glasscard(padding: 0)
+                        }
+                        .buttonStyle(.plain)
+                    }
                     
                     VStack(spacing: 20) {
                         Text("Arabic")

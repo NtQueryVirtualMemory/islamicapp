@@ -5,14 +5,18 @@ class notificationservice {
     static let shared = notificationservice()
     private init() {}
     
-    func requestauth() async -> Bool {
-        do {
-            let granted = try await UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge])
-            return granted
-        } catch {
-            print(error)
-            return false
+    func request() {
+        Task {
+            do {
+                _ = try await UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge])
+            } catch {
+                print(error)
+            }
         }
+    }
+    
+    func cancel() {
+        UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
     }
     
     func schedule(prayers: prayertimings) async {

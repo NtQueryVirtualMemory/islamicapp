@@ -25,6 +25,7 @@
 		B10016 /* duamodel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10016; };
 		B10017 /* notificationservice.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10017; };
 		B10018 /* surahdetailviewmodel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10018; };
+		B10019 /* audioservice.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10019; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +47,7 @@
 		F10016 /* duamodel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = duamodel.swift; sourceTree = "<group>"; };
 		F10017 /* notificationservice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = notificationservice.swift; sourceTree = "<group>"; };
 		F10018 /* surahdetailviewmodel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = surahdetailviewmodel.swift; sourceTree = "<group>"; };
+		F10019 /* audioservice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = audioservice.swift; sourceTree = "<group>"; };
 		P10001 /* islamicapp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = islamicapp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -89,6 +91,7 @@
 				F10016,
 				F10017,
 				F10018,
+				F10019,
 			);
 			path = islamicapp;
 			sourceTree = "<group>";
@@ -172,6 +175,7 @@
 				B10016,
 				B10017,
 				B10018,
+				B10019,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

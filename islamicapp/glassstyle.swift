@@ -28,6 +28,8 @@ struct appcolors {
     static let text = Color.white
     static let textsecondary = Color.white.opacity(0.6)
     static let texttertiary = Color.white.opacity(0.35)
+    static let cardbackground = Color.white.opacity(0.05)
+    static let cardborder = Color.white.opacity(0.12)
 }
 
 struct glasscardmodifier: ViewModifier {
@@ -37,31 +39,13 @@ struct glasscardmodifier: ViewModifier {
         content
             .padding(padding)
             .background {
-                ZStack {
-                    RoundedRectangle(cornerRadius: 24, style: .continuous)
-                        .fill(.ultraThinMaterial)
-                    
-                    RoundedRectangle(cornerRadius: 24, style: .continuous)
-                        .fill(
-                            LinearGradient(
-                                colors: [.white.opacity(0.12), .white.opacity(0.02)],
-                                startPoint: .topLeading,
-                                endPoint: .bottomTrailing
-                            )
-                        )
-                    
-                    RoundedRectangle(cornerRadius: 24, style: .continuous)
-                        .stroke(
-                            LinearGradient(
-                                colors: [.white.opacity(0.25), .white.opacity(0.05)],
-                                startPoint: .topLeading,
-                                endPoint: .bottomTrailing
-                            ),
-                            lineWidth: 1
-                        )
-                }
+                RoundedRectangle(cornerRadius: 20, style: .continuous)
+                    .fill(appcolors.cardbackground)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 20, style: .continuous)
+                            .stroke(appcolors.cardborder, lineWidth: 1)
+                    )
             }
-            .shadow(color: .black.opacity(0.4), radius: 20, x: 0, y: 10)
     }
 }
 
@@ -72,10 +56,10 @@ struct glasspillmodifier: ViewModifier {
             .padding(.vertical, 10)
             .background {
                 Capsule()
-                    .fill(.ultraThinMaterial)
+                    .fill(appcolors.cardbackground)
                     .overlay(
                         Capsule()
-                            .stroke(.white.opacity(0.15), lineWidth: 0.5)
+                            .stroke(appcolors.cardborder, lineWidth: 0.5)
                     )
             }
     }

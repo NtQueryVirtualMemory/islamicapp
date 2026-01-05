@@ -15,6 +15,7 @@ struct ayah: Codable, Identifiable {
     let number: Int
     let text: String
     let numberInSurah: Int
+    let audio: String?
     
     var id: Int { number }
 }
@@ -22,4 +23,5 @@ struct ayah: Codable, Identifiable {
 struct ayahpair {
     let arabic: ayah
     let transliteration: ayah
+    let audio: String?
 }

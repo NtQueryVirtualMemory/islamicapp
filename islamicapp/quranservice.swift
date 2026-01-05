@@ -12,7 +12,7 @@ class quranservice {
     }
     
     func fetchayahs(surahnumber: Int) async throws -> [ayahpair] {
-        let url = URL(string: "https://api.alquran.cloud/v1/surah/\(surahnumber)/editions/quran-uthmani,en.transliteration")!
+        let url = URL(string: "https://api.alquran.cloud/v1/surah/\(surahnumber)/editions/ar.alafasy,en.transliteration")!
         let (data, _) = try await URLSession.shared.data(from: url)
         let response = try JSONDecoder().decode(multisurahresponse.self, from: data)
         
@@ -21,7 +21,7 @@ class quranservice {
         let arabic = response.data[0].ayahs
         let translit = response.data[1].ayahs
         
-        return zip(arabic, translit).map { ayahpair(arabic: $0, transliteration: $1) }
+        return zip(arabic, translit).map { ayahpair(arabic: $0, transliteration: $1, audio: $0.audio) }
     }
 }
 

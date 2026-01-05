@@ -6,6 +6,14 @@ struct settingsview: View {
     @AppStorage("asrmethod") private var asrmethod = "Standard"
     @State private var appear = false
     
+    private func updatenotifications() {
+        if notifications {
+            notificationservice.shared.request()
+        } else {
+            notificationservice.shared.cancel()
+        }
+    }
+    
     var body: some View {
         ZStack {
             liquidbackground()
@@ -54,6 +62,9 @@ struct settingsview: View {
                     icon: "bell.fill",
                     isOn: $notifications
                 )
+                .onChange(of: notifications) { _ in
+                    updatenotifications()
+                }
             }
             
             settingsgroup(title: "Calculation") {
