@@ -33,8 +33,11 @@ struct mainview: View {
             duaview()
                 .id(3)
         case 4:
-            settingsview()
+            chatbotview()
                 .id(4)
+        case 5:
+            settingsview()
+                .id(5)
         default:
             prayerview()
                 .id(0)
@@ -47,7 +50,8 @@ struct mainview: View {
             tabbutton(index: 1, icon: "book.fill", label: "Quran")
             tabbutton(index: 2, icon: "location.north.fill", label: "Qibla")
             tabbutton(index: 3, icon: "hands.sparkles.fill", label: "Duas")
-            tabbutton(index: 4, icon: "gearshape.fill", label: "Settings")
+            tabbutton(index: 4, icon: "message.fill", label: "AI")
+            tabbutton(index: 5, icon: "gearshape.fill", label: "Settings")
         }
         .padding(.horizontal, 8)
         .padding(.vertical, 12)
