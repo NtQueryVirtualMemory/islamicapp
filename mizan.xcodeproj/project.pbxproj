@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B10001 /* islamicapp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10001; };
+		B10001 /* mizan.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10001; };
 		B10002 /* mainview.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10002; };
 		B10003 /* prayerview.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10003; };
 		B10004 /* quranview.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10004; };
@@ -29,7 +29,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		F10001 /* islamicapp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = islamicapp.swift; sourceTree = "<group>"; };
+		F10001 /* mizan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mizan.swift; sourceTree = "<group>"; };
 		F10002 /* mainview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mainview.swift; sourceTree = "<group>"; };
 		F10003 /* prayerview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = prayerview.swift; sourceTree = "<group>"; };
 		F10004 /* quranview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = quranview.swift; sourceTree = "<group>"; };
@@ -331,7 +331,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.islamicapp;
+				PRODUCT_BUNDLE_IDENTIFIER = dev.cyendd.mizan;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -359,7 +359,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.islamicapp;
+				PRODUCT_BUNDLE_IDENTIFIER = dev.cyendd.mizan;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

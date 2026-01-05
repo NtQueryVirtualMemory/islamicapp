@@ -19,14 +19,14 @@ jobs:
         
     - name: build ipa
       run: |
-        xcodebuild -project islamicapp.xcodeproj -scheme islamicapp -sdk iphoneos -configuration Release archive -archivePath $PWD/build/islamicapp.xcarchive CODE_SIGNING_ALLOWED=NO
+        xcodebuild -project mizan.xcodeproj -scheme mizan -sdk iphoneos -configuration Release archive -archivePath $PWD/build/mizan.xcarchive CODE_SIGNING_ALLOWED=NO
         mkdir -p $PWD/build/Payload
-        cp -r $PWD/build/islamicapp.xcarchive/Products/Applications/islamicapp.app $PWD/build/Payload/
+        cp -r $PWD/build/mizan.xcarchive/Products/Applications/mizan.app $PWD/build/Payload/
         cd $PWD/build
-        zip -r islamicapp.ipa Payload
+        zip -r mizan.ipa Payload
         
     - name: upload artifact
       uses: actions/upload-artifact@v4
       with:
-        name: islamicapp-ipa
-        path: build/islamicapp.ipa
+        name: mizan.ipa
+        path: build/mizan.ipa

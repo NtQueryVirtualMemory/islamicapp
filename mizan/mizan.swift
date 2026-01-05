@@ -1,7 +1,7 @@
 import SwiftUI
 
 @main
-struct islamicapp: App {
+struct mizan: App {
     var body: some Scene {
         WindowGroup {
             mainview()
