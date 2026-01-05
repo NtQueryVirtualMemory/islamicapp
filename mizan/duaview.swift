@@ -73,7 +73,7 @@ struct duaview: View {
     
     private func categorycard(title: String, icon: String, color: String, index: Int) -> some View {
         Button {
-            let filtered = duadatabase.duas.filter { $0.category == title }
+            let filtered = duadatabase.shared.items.filter { $0.category == title }
             if let first = filtered.first {
                 selected = first
             }
