@@ -157,6 +157,7 @@ F20005 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = fold
 				F10023,
 				F10024,
 				F10025,
+				F10026,
 			);
 			path = mizan;
 			sourceTree = "<group>";
@@ -184,6 +185,7 @@ F20005 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = fold
 			children = (
 				F20001,
 				F20004,
+				F20005,
 			);
 			path = mizanwidget;
 			sourceTree = "<group>";
