@@ -62,7 +62,7 @@ struct settingsview: View {
                     icon: "bell.fill",
                     isOn: $notifications
                 )
-                .onChange(of: notifications) { _ in
+                .onChange(of: notifications) {
                     updatenotifications()
                 }
             }

@@ -24,10 +24,8 @@ class prayerviewmodel: ObservableObject {
             updatecurrent()
             starttimer()
             
-            let granted = await notificationservice.shared.requestauth()
-            if granted {
-                await notificationservice.shared.schedule(prayers: data.timings)
-            }
+            notificationservice.shared.request()
+            await notificationservice.shared.schedule(prayers: data.timings)
         } catch {
             print(error)
         }

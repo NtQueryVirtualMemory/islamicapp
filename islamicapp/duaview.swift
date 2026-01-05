@@ -42,7 +42,7 @@ struct duaview: View {
             }
         }
         .sheet(item: $selected) { d in
-            duadetailsheet(dua: d)
+            duadetailview(dua: d)
         }
     }
     
@@ -153,7 +153,7 @@ struct duaview: View {
 struct duadetailview: View {
     let dua: dua
     @StateObject private var audio = audioservice.shared
-    @Environment(\.dismiss) private var dismisss
+    @Environment(\.dismiss) private var dismiss
     
     var body: some View {
         ZStack {
