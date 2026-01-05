@@ -1,4 +1,4 @@
-
+// !$*UTF8*$!
 {
 	archiveVersion = 1;
 	classes = {
@@ -26,7 +26,40 @@
 		B10017 /* notificationservice.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10017; };
 		B10018 /* surahdetailviewmodel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10018; };
 		B10019 /* audioservice.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10019; };
+		B10020 /* locationservice.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10020; };
+		B10021 /* audioplayerview.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10021; };
+		B10022 /* prayersettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10022; };
+		B10023 /* prayersettingsview.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10023; };
+		B10024 /* duacategoryview.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10024; };
+		B20001 /* mizanwidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = F20001; };
+		B20002 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F20002; };
+		B20003 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F20003; };
+		B20004 /* mizanwidget.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = P20001; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		C20001 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = PR0001 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = T20001;
+			remoteInfo = mizanwidget;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		CP0001 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				B20004,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		F10001 /* mizan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mizan.swift; sourceTree = "<group>"; };
@@ -48,7 +81,18 @@
 		F10017 /* notificationservice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = notificationservice.swift; sourceTree = "<group>"; };
 		F10018 /* surahdetailviewmodel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = surahdetailviewmodel.swift; sourceTree = "<group>"; };
 		F10019 /* audioservice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = audioservice.swift; sourceTree = "<group>"; };
-		P10001 /* islamicapp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = mizan.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F10020 /* locationservice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = locationservice.swift; sourceTree = "<group>"; };
+		F10021 /* audioplayerview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = audioplayerview.swift; sourceTree = "<group>"; };
+		F10022 /* prayersettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = prayersettings.swift; sourceTree = "<group>"; };
+		F10023 /* prayersettingsview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = prayersettingsview.swift; sourceTree = "<group>"; };
+		F10024 /* duacategoryview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = duacategoryview.swift; sourceTree = "<group>"; };
+		F10025 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F20001 /* mizanwidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mizanwidget.swift; sourceTree = "<group>"; };
+		F20002 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		F20003 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		F20004 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		P10001 /* mizan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = mizan.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		P20001 /* mizanwidget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = mizanwidget.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +103,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		FR0002 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B20002,
+				B20003,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -66,7 +119,9 @@
 			isa = PBXGroup;
 			children = (
 				G10002,
+				G20001,
 				G10003,
+				G10004,
 			);
 			sourceTree = "<group>";
 		};
@@ -92,6 +147,12 @@
 				F10017,
 				F10018,
 				F10019,
+				F10020,
+				F10021,
+				F10022,
+				F10023,
+				F10024,
+				F10025,
 			);
 			path = mizan;
 			sourceTree = "<group>";
@@ -100,29 +161,67 @@
 			isa = PBXGroup;
 			children = (
 				P10001,
+				P20001,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		G10004 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F20002,
+				F20003,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		G20001 /* mizanwidget */ = {
+			isa = PBXGroup;
+			children = (
+				F20001,
+				F20004,
+			);
+			path = mizanwidget;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		T10001 /* islamicapp */ = {
+		T10001 /* mizan */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = CL0001;
 			buildPhases = (
 				BP0001,
 				FR0001,
 				BP0002,
+				CP0001,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D20001,
+			);
+			name = mizan;
+			productName = mizan;
+			productReference = P10001;
+			productType = "com.apple.product-type.application";
+		};
+		T20001 /* mizanwidget */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CL0002;
+			buildPhases = (
+				BP0003,
+				FR0002,
+				BP0004,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = mizan;
-			productName = islamicapp;
-			productReference = P10001;
-			productType = "com.apple.product-type.application";
+			name = mizanwidget;
+			productName = mizanwidget;
+			productReference = P20001;
+			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -131,10 +230,18 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1500;
-				LastUpgradeCheck = 1500;
+				LastSwiftUpdateCheck = 1600;
+				LastUpgradeCheck = 1600;
+				TargetAttributes = {
+					T10001 = {
+						CreatedOnToolsVersion = 16.0;
+					};
+					T20001 = {
+						CreatedOnToolsVersion = 16.0;
+					};
+				};
 			};
-			buildConfigurationList = CL0002;
+			buildConfigurationList = CL0003;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -148,6 +255,7 @@
 			projectRoot = "";
 			targets = (
 				T10001,
+				T20001,
 			);
 		};
 /* End PBXProject section */
@@ -176,6 +284,19 @@
 				B10017,
 				B10018,
 				B10019,
+				B10020,
+				B10021,
+				B10022,
+				B10023,
+				B10024,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BP0003 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B20001,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -189,7 +310,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		BP0004 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D20001 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = T20001;
+			targetProxy = C20001;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		BC0001 /* Debug */ = {
@@ -316,16 +452,20 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = "";
-				GENERATE_INFOPLIST_FILE = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = mizan/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Mizan;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -344,16 +484,20 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = "";
-				GENERATE_INFOPLIST_FILE = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = mizan/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Mizan;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -361,6 +505,64 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = dev.cyendd.mizan;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		BC0005 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = mizanwidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Mizan Widget";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = dev.cyendd.mizan.widget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		BC0006 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = mizanwidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Mizan Widget";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = dev.cyendd.mizan.widget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -379,7 +581,16 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		CL0002 /* Build configuration list for PBXProject "islamicapp" */ = {
+		CL0002 /* Build configuration list for PBXNativeTarget "mizanwidget" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BC0005,
+				BC0006,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CL0003 /* Build configuration list for PBXProject "mizan" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				BC0001,
@@ -390,5 +601,5 @@
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = PR0001;
+	rootObject = PR0001 /* Project object */;
 }

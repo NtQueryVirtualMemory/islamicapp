@@ -15,25 +15,28 @@ struct settingsview: View {
     }
     
     var body: some View {
-        ZStack {
-            liquidbackground()
-            
-            ScrollView(showsIndicators: false) {
-                VStack(spacing: 0) {
-                    header
-                        .padding(.bottom, 28)
-                    
-                    settingslist
-                    
-                    Spacer(minLength: 120)
+        NavigationStack {
+            ZStack {
+                liquidbackground()
+                
+                ScrollView(showsIndicators: false) {
+                    VStack(spacing: 0) {
+                        header
+                            .padding(.bottom, 28)
+                        
+                        settingslist
+                        
+                        Spacer(minLength: 120)
+                    }
+                    .padding(.top, 60)
+                    .padding(.horizontal, 20)
                 }
-                .padding(.top, 60)
-                .padding(.horizontal, 20)
             }
-        }
-        .onAppear {
-            withAnimation(.easeOut(duration: 0.6)) {
-                appear = true
+            .navigationBarHidden(true)
+            .onAppear {
+                withAnimation(.easeOut(duration: 0.6)) {
+                    appear = true
+                }
             }
         }
     }
@@ -106,6 +109,15 @@ struct settingsview: View {
     
     private var settingslist: some View {
         VStack(spacing: 24) {
+            settingsgroup(title: "Prayer Times") {
+                NavigationLink {
+                    prayersettingsview()
+                } label: {
+                    settingsnavlink(title: "Prayer Settings", subtitle: "Adhan & timing adjustments", icon: "clock.fill")
+                }
+                .buttonStyle(.plain)
+            }
+            
             settingsgroup(title: "Notifications") {
                 settingstoggle(
                     title: "Prayer Alerts",
@@ -284,5 +296,32 @@ struct settingsview: View {
             .padding(.vertical, 14)
         }
         .buttonStyle(.plain)
+    }
+    
+    private func settingsnavlink(title: String, subtitle: String, icon: String) -> some View {
+        HStack(spacing: 14) {
+            Image(systemName: icon)
+                .font(.system(size: 18, weight: .semibold))
+                .foregroundStyle(appcolors.accent)
+                .frame(width: 24)
+            
+            VStack(alignment: .leading, spacing: 2) {
+                Text(title)
+                    .font(.system(size: 16, weight: .semibold, design: .rounded))
+                    .foregroundStyle(appcolors.text)
+                
+                Text(subtitle)
+                    .font(.system(size: 12, weight: .medium, design: .rounded))
+                    .foregroundStyle(appcolors.texttertiary)
+            }
+            
+            Spacer()
+            
+            Image(systemName: "chevron.right")
+                .font(.system(size: 12, weight: .bold))
+                .foregroundStyle(appcolors.texttertiary)
+        }
+        .padding(.horizontal, 16)
+        .padding(.vertical, 14)
     }
 }

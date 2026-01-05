@@ -1,135 +1,129 @@
 import SwiftUI
-import CoreLocation
 
 struct qiblaview: View {
-    @StateObject private var compass = qiblaservice.shared
-    @State private var appear = false
-    
-    var rotation: Double {
-        compass.qiblabearing - compass.heading
-    }
+    @StateObject private var service = qiblaservice.shared
     
     var body: some View {
         ZStack {
             liquidbackground()
             
-            VStack(spacing: 0) {
+            VStack(spacing: 40) {
                 header
-                    .padding(.top, 60)
-                    .padding(.bottom, 40)
                 
-                Spacer()
+                statuscard
                 
-                compassview
+                prayermat
                 
                 Spacer()
                 
                 footer
-                    .padding(.bottom, 140)
             }
+            .padding(.top, 60)
             .padding(.horizontal, 20)
+            .padding(.bottom, 40)
         }
         .onAppear {
-            withAnimation(.easeOut(duration: 0.6)) {
-                appear = true
-            }
+            service.request()
+            service.start()
+        }
+        .onDisappear {
+            service.stop()
         }
     }
     
     private var header: some View {
-        VStack(alignment: .leading, spacing: 8) {
-            Text("Qibla Direction")
-                .font(.system(size: 34, weight: .bold, design: .rounded))
-                .foregroundStyle(appcolors.text)
-            
-            Text("Face the Holy Kaaba")
-                .font(.system(size: 15, weight: .medium, design: .rounded))
-                .foregroundStyle(appcolors.textsecondary)
-        }
-        .frame(maxWidth: .infinity, alignment: .leading)
-        .opacity(appear ? 1 : 0)
-        .offset(y: appear ? 0 : 20)
+        Text("Qibla Finder")
+            .font(.system(size: 36, weight: .bold, design: .rounded))
+            .foregroundStyle(appcolors.text)
     }
     
-    private var compassview: some View {
-        ZStack {
-            Circle()
-                .stroke(appcolors.accent.opacity(0.1), lineWidth: 1)
-                .frame(width: 320, height: 320)
-            
-            Circle()
-                .stroke(Color.white.opacity(0.05), lineWidth: 2)
-                .frame(width: 280, height: 280)
-            
-            ForEach(0..<72, id: \.self) { i in
-                Rectangle()
-                    .fill(i % 18 == 0 ? appcolors.accent : Color.white.opacity(0.15))
-                    .frame(width: i % 18 == 0 ? 2 : 1, height: i % 18 == 0 ? 16 : 8)
-                    .offset(y: -130)
-                    .rotationEffect(.degrees(Double(i) * 5))
-            }
-            
-            ForEach(0..<4, id: \.self) { i in
-                Text(["N", "E", "S", "W"][i])
-                    .font(.system(size: 14, weight: .bold, design: .rounded))
-                    .foregroundStyle(i == 0 ? appcolors.accent : appcolors.texttertiary)
-                    .offset(y: -105)
-                    .rotationEffect(.degrees(Double(i) * 90))
-            }
-            .rotationEffect(.degrees(-compass.heading))
-            
-            Circle()
-                .fill(appcolors.cardbackground)
-                .frame(width: 220, height: 220)
-                .overlay(
-                    Circle()
-                        .stroke(appcolors.cardborder, lineWidth: 1)
-                )
-            
-            VStack(spacing: 0) {
-                Image(systemName: "location.north.fill")
-                    .font(.system(size: 32, weight: .bold))
-                    .foregroundStyle(appcolors.accent)
-                    .shadow(color: appcolors.accent.opacity(0.5), radius: 8)
+    private var statuscard: some View {
+        HStack(spacing: 16) {
+            ZStack {
+                Circle()
+                    .fill(service.facing ? Color.green.opacity(0.2) : Color.red.opacity(0.2))
+                    .frame(width: 50, height: 50)
                 
-                Rectangle()
-                    .fill(
-                        LinearGradient(
-                            colors: [appcolors.accent, appcolors.accent.opacity(0.2)],
-                            startPoint: .top,
-                            endPoint: .bottom
-                        )
-                    )
-                    .frame(width: 4, height: 70)
-                    .clipShape(Capsule())
+                Image(systemName: service.facing ? "checkmark" : "arrow.left.arrow.right")
+                    .font(.system(size: 20, weight: .bold))
+                    .foregroundStyle(service.facing ? Color.green : Color.red)
             }
-            .offset(y: -35)
-            .rotationEffect(.degrees(rotation))
-            .animation(.spring(response: 0.4, dampingFraction: 0.7), value: rotation)
             
-            Circle()
-                .fill(appcolors.background)
-                .frame(width: 16, height: 16)
-                .overlay(
-                    Circle()
-                        .stroke(appcolors.accent, lineWidth: 3)
-                )
+            Text(service.turntext.isEmpty ? "Calibrating..." : service.turntext)
+                .font(.system(size: 18, weight: .semibold, design: .rounded))
+                .foregroundStyle(service.facing ? Color.green : Color.red)
+            
+            Spacer()
         }
-        .opacity(appear ? 1 : 0)
-        .scaleEffect(appear ? 1 : 0.9)
+        .padding(20)
+        .glasscard()
+    }
+    
+    private var prayermat: some View {
+        ZStack {
+            RoundedRectangle(cornerRadius: 24, style: .continuous)
+                .fill(
+                    LinearGradient(
+                        colors: [
+                            service.facing ? Color.green.opacity(0.3) : appcolors.accent.opacity(0.3),
+                            service.facing ? Color.green.opacity(0.1) : appcolors.accent.opacity(0.1)
+                        ],
+                        startPoint: .topLeading,
+                        endPoint: .bottomTrailing
+                    )
+                )
+                .overlay(
+                    RoundedRectangle(cornerRadius: 24, style: .continuous)
+                        .stroke(
+                            service.facing ? Color.green.opacity(0.5) : appcolors.accent.opacity(0.5),
+                            lineWidth: 3
+                        )
+                )
+                .frame(width: 200, height: 280)
+            
+            RoundedRectangle(cornerRadius: 16, style: .continuous)
+                .fill(Color.black.opacity(0.3))
+                .frame(width: 160, height: 220)
+            
+            VStack(spacing: 8) {
+                Image(systemName: "arrow.up")
+                    .font(.system(size: 40, weight: .bold))
+                    .foregroundStyle(service.facing ? Color.green : appcolors.accent)
+                
+                Text("Qibla")
+                    .font(.system(size: 16, weight: .bold, design: .rounded))
+                    .foregroundStyle(service.facing ? Color.green : appcolors.accent)
+            }
+            .offset(y: -80)
+        }
+        .rotationEffect(.degrees(service.qibladirection - service.heading))
+        .animation(.spring(response: 0.3, dampingFraction: 0.8), value: service.heading)
     }
     
     private var footer: some View {
         VStack(spacing: 16) {
-            Text("\(Int(compass.qiblabearing))°")
-                .font(.system(size: 48, weight: .bold, design: .monospaced))
-                .foregroundStyle(appcolors.text)
+            if service.distance > 0 {
+                Text("Distance to Kaaba: \(Int(service.distance)) km")
+                    .font(.system(size: 16, weight: .semibold, design: .rounded))
+                    .foregroundStyle(appcolors.textsecondary)
+            }
             
-            Text("Align the arrow with the Kaaba")
-                .font(.system(size: 14, weight: .medium, design: .rounded))
+            if !service.location.isEmpty {
+                HStack(spacing: 8) {
+                    Image(systemName: "location.fill")
+                        .font(.system(size: 14, weight: .semibold))
+                    
+                    Text(service.location)
+                        .font(.system(size: 16, weight: .medium, design: .rounded))
+                }
+                .foregroundStyle(appcolors.texttertiary)
+            }
+            
+            Text("Hold your phone horizontally to find the Qibla and turn it towards the arrow.")
+                .font(.system(size: 13, weight: .medium, design: .rounded))
                 .foregroundStyle(appcolors.texttertiary)
                 .multilineTextAlignment(.center)
+                .padding(.horizontal, 20)
         }
-        .opacity(appear ? 1 : 0)
     }
 }

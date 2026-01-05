@@ -64,7 +64,12 @@ struct duaview: View {
     private var categorygrid: some View {
         LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())], spacing: 14) {
             ForEach(Array(categories.enumerated()), id: \.offset) { index, cat in
-                categorycard(title: cat.0, icon: cat.1, color: cat.2, index: index)
+                NavigationLink {
+                    duacategoryview(category: cat.0, color: cat.2)
+                } label: {
+                    categorycard(title: cat.0, icon: cat.1, color: cat.2, index: index)
+                }
+                .buttonStyle(.plain)
             }
         }
         .opacity(appear ? 1 : 0)
@@ -72,35 +77,27 @@ struct duaview: View {
     }
     
     private func categorycard(title: String, icon: String, color: String, index: Int) -> some View {
-        Button {
-            let filtered = duadatabase.shared.items.filter { $0.category == title }
-            if let first = filtered.first {
-                selected = first
-            }
-        } label: {
-            VStack(spacing: 14) {
-                ZStack {
-                    Circle()
-                        .fill(Color(hex: color).opacity(0.15))
-                        .frame(width: 52, height: 52)
-                    
-                    Image(systemName: icon)
-                        .font(.system(size: 22, weight: .semibold))
-                        .foregroundStyle(Color(hex: color))
-                }
+        VStack(spacing: 14) {
+            ZStack {
+                Circle()
+                    .fill(Color(hex: color).opacity(0.15))
+                    .frame(width: 52, height: 52)
                 
-                Text(title)
-                    .font(.system(size: 13, weight: .semibold, design: .rounded))
-                    .foregroundStyle(appcolors.text)
-                    .multilineTextAlignment(.center)
-                    .lineLimit(2)
-                    .fixedSize(horizontal: false, vertical: true)
+                Image(systemName: icon)
+                    .font(.system(size: 22, weight: .semibold))
+                    .foregroundStyle(Color(hex: color))
             }
-            .frame(maxWidth: .infinity)
-            .padding(.vertical, 20)
-            .glasscard(padding: 12)
+            
+            Text(title)
+                .font(.system(size: 13, weight: .semibold, design: .rounded))
+                .foregroundStyle(appcolors.text)
+                .multilineTextAlignment(.center)
+                .lineLimit(2)
+                .fixedSize(horizontal: false, vertical: true)
         }
-        .buttonStyle(.plain)
+        .frame(maxWidth: .infinity)
+        .padding(.vertical, 20)
+        .glasscard(padding: 12)
         .animation(.spring(response: 0.4, dampingFraction: 0.8).delay(Double(index) * 0.05), value: appear)
     }
     
@@ -111,7 +108,7 @@ struct duaview: View {
                 .foregroundStyle(appcolors.text)
                 .padding(.leading, 4)
             
-            ForEach(duadatabase.shared.items) { d in
+            ForEach(duadatabase.shared.items.prefix(6)) { d in
                 Button {
                     selected = d
                 } label: {
@@ -196,7 +193,7 @@ struct duadetailview: View {
                     
                     if let audiourl = dua.audio {
                         Button {
-                            audio.toggle(url: audiourl)
+                            audio.toggle(url: audiourl, title: dua.title, subtitle: dua.category)
                         } label: {
                             HStack(spacing: 8) {
                                 Image(systemName: audio.playing && audio.currenturl == audiourl ? "pause.circle.fill" : "play.circle.fill")
@@ -252,7 +249,7 @@ struct duadetailview: View {
                     }
                     .glasscard(padding: 24)
                     
-                    Spacer(minLength: 40)
+                    Spacer(minLength: 140)
                 }
                 .padding(.horizontal, 24)
                 .padding(.top, 20)

@@ -3,30 +3,42 @@ import SwiftUI
 struct mainview: View {
     @State private var selected = 0
     @Namespace private var animation
+    @StateObject private var audio = audioservice.shared
     
     var body: some View {
         ZStack(alignment: .bottom) {
-            TabView(selection: $selected) {
-                prayerview()
-                    .tag(0)
-                
-                quranview()
-                    .tag(1)
-                
-                qiblaview()
-                    .tag(2)
-                
-                duaview()
-                    .tag(3)
-                
-                settingsview()
-                    .tag(4)
-            }
-            .tabViewStyle(.page(indexDisplayMode: .never))
+            tabcontent
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+            
+            audioplayerview(audio: audio)
             
             tabbar
         }
         .ignoresSafeArea(.keyboard)
+    }
+    
+    @ViewBuilder
+    private var tabcontent: some View {
+        switch selected {
+        case 0:
+            prayerview()
+                .id(0)
+        case 1:
+            quranview()
+                .id(1)
+        case 2:
+            qiblaview()
+                .id(2)
+        case 3:
+            duaview()
+                .id(3)
+        case 4:
+            settingsview()
+                .id(4)
+        default:
+            prayerview()
+                .id(0)
+        }
     }
     
     private var tabbar: some View {

@@ -12,7 +12,7 @@ class quranservice {
     }
     
     func fetchayahs(surahnumber: Int) async throws -> [ayahpair] {
-        guard let url = URL(string: "https://api.alquran.cloud/v1/surah/\(surahnumber)/editions/ar.alafasy,en.transliteration") else {
+        guard let url = URL(string: "https://api.alquran.cloud/v1/surah/\(surahnumber)/editions/quran-uthmani,en.transliteration,en.sahih,ar.alafasy") else {
             return []
         }
         
@@ -20,14 +20,25 @@ class quranservice {
             let (data, _) = try await URLSession.shared.data(from: url)
             let response = try JSONDecoder().decode(multisurahresponse.self, from: data)
             
-            guard response.data.count == 2 else { return [] }
+            guard response.data.count == 4 else { return [] }
             
             let arabic = response.data[0].ayahs
             let translit = response.data[1].ayahs
+            let translation = response.data[2].ayahs
+            let audio = response.data[3].ayahs
             
-            guard arabic.count == translit.count else { return [] }
+            guard arabic.count == translit.count && arabic.count == translation.count && arabic.count == audio.count else { return [] }
             
-            return zip(arabic, translit).map { ayahpair(arabic: $0, transliteration: $1, audio: $0.audio) }
+            return zip(arabic, zip(translit, zip(translation, audio))).map { arabic, rest in
+                let (translit, rest2) = rest
+                let (translation, audio) = rest2
+                return ayahpair(
+                    arabic: arabic,
+                    transliteration: translit,
+                    translation: translation,
+                    audio: audio.audio
+                )
+            }
         } catch {
             print("quran fetch error: \(error)")
             return []

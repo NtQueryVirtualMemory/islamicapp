@@ -23,5 +23,6 @@ struct ayah: Codable, Identifiable {
 struct ayahpair {
     let arabic: ayah
     let transliteration: ayah
+    let translation: ayah
     let audio: String?
 }

@@ -105,7 +105,9 @@ struct quranview: View {
     private var surahlist: some View {
         LazyVStack(spacing: 12) {
             ForEach(Array(filtered.enumerated()), id: \.element.id) { index, s in
-                NavigationLink(destination: surahdetailview(surah: s)) {
+                NavigationLink {
+                    surahdetailview(surah: s)
+                } label: {
                     surahrow(s: s, index: index)
                 }
                 .buttonStyle(.plain)
@@ -157,6 +159,7 @@ struct surahdetailview: View {
     @StateObject private var vm = surahdetailviewmodel()
     @StateObject private var audio = audioservice.shared
     @Environment(\.dismiss) private var dismiss
+    @State private var autoplay = false
     
     var body: some View {
         ZStack {
@@ -174,7 +177,7 @@ struct surahdetailview: View {
                         ayahlist
                     }
                     
-                    Spacer(minLength: 40)
+                    Spacer(minLength: 140)
                 }
                 .padding(.top, 20)
                 .padding(.horizontal, 20)
@@ -192,6 +195,19 @@ struct surahdetailview: View {
                         .frame(width: 40, height: 40)
                         .background(.ultraThinMaterial)
                         .clipShape(Circle())
+                }
+            }
+            
+            ToolbarItem(placement: .navigationBarTrailing) {
+                Button {
+                    autoplay.toggle()
+                    if autoplay && !vm.ayahs.isEmpty {
+                        playall()
+                    }
+                } label: {
+                    Image(systemName: autoplay ? "play.circle.fill" : "play.circle")
+                        .font(.system(size: 24, weight: .semibold))
+                        .foregroundStyle(appcolors.accent)
                 }
             }
         }
@@ -241,7 +257,7 @@ struct surahdetailview: View {
                         
                         if let audiourl = pair.audio {
                             Button {
-                                audio.toggle(url: audiourl)
+                                audio.toggle(url: audiourl, title: "Ayah \(pair.arabic.numberInSurah)", subtitle: surah.englishName)
                             } label: {
                                 Image(systemName: audio.playing && audio.currenturl == audiourl ? "pause.circle.fill" : "play.circle.fill")
                                     .font(.system(size: 24, weight: .semibold))
@@ -257,16 +273,32 @@ struct surahdetailview: View {
                         .multilineTextAlignment(.trailing)
                         .lineSpacing(12)
                     
-                    Text(pair.transliteration.text)
-                        .font(.system(size: 14, weight: .medium, design: .rounded))
+                    Divider()
+                        .background(appcolors.texttertiary.opacity(0.3))
+                    
+                    Text(pair.translation.text)
+                        .font(.system(size: 15, weight: .medium, design: .rounded))
                         .foregroundStyle(appcolors.textsecondary)
-                        .multilineTextAlignment(.trailing)
+                        .multilineTextAlignment(.leading)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                    
+                    Text(pair.transliteration.text)
+                        .font(.system(size: 13, weight: .medium, design: .rounded))
+                        .foregroundStyle(appcolors.texttertiary)
+                        .multilineTextAlignment(.leading)
                         .italic()
+                        .frame(maxWidth: .infinity, alignment: .leading)
                 }
                 .glasscard(padding: 20)
             }
         }
     }
+    
+    private func playall() {
+        let items = vm.ayahs.compactMap { pair -> audioitem? in
+            guard let url = pair.audio else { return nil }
+            return audioitem(url: url, title: "Ayah \(pair.arabic.numberInSurah)", subtitle: surah.englishName)
+        }
+        audio.playqueue(items: items)
+    }
 }
-
-
