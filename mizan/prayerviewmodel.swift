@@ -135,6 +135,11 @@ class prayerviewmodel: ObservableObject {
         return nil
     }
     
+    func schedulenotifications() async {
+        guard let t = timings else { return }
+        await notificationservice.shared.schedule(prayers: t)
+    }
+    
     deinit {
         timer?.invalidate()
     }

@@ -3,6 +3,7 @@ import SwiftUI
 struct prayerview: View {
     @StateObject private var vm = prayerviewmodel()
     @State private var appear = false
+    @State private var settings = prayersettings.load()
     
     var body: some View {
         ZStack {
@@ -90,41 +91,73 @@ struct prayerview: View {
     
     private func content(_ t: prayertimings) -> some View {
         VStack(spacing: 12) {
-            prayercard(name: "Fajr", time: t.Fajr, icon: "sunrise.fill", active: vm.currentprayer == "Fajr")
-            prayercard(name: "Sunrise", time: t.Sunrise, icon: "sun.horizon.fill", active: false)
-            prayercard(name: "Dhuhr", time: t.Dhuhr, icon: "sun.max.fill", active: vm.currentprayer == "Dhuhr")
-            prayercard(name: "Asr", time: t.Asr, icon: "sun.min.fill", active: vm.currentprayer == "Asr")
-            prayercard(name: "Maghrib", time: t.Maghrib, icon: "sunset.fill", active: vm.currentprayer == "Maghrib")
-            prayercard(name: "Isha", time: t.Isha, icon: "moon.stars.fill", active: vm.currentprayer == "Isha")
+            prayercard(name: "Fajr", time: t.Fajr, icon: "sunrise.fill", active: vm.currentprayer == "Fajr", adhan: $settings.fajradhan)
+            prayercard(name: "Sunrise", time: t.Sunrise, icon: "sun.horizon.fill", active: false, adhan: .constant(false), showAdhan: false)
+            prayercard(name: "Dhuhr", time: t.Dhuhr, icon: "sun.max.fill", active: vm.currentprayer == "Dhuhr", adhan: $settings.dhuhradhan)
+            prayercard(name: "Asr", time: t.Asr, icon: "sun.min.fill", active: vm.currentprayer == "Asr", adhan: $settings.asradhan)
+            prayercard(name: "Maghrib", time: t.Maghrib, icon: "sunset.fill", active: vm.currentprayer == "Maghrib", adhan: $settings.maghribadhan)
+            prayercard(name: "Isha", time: t.Isha, icon: "moon.stars.fill", active: vm.currentprayer == "Isha", adhan: $settings.ishaadhan)
         }
         .opacity(appear ? 1 : 0)
         .offset(y: appear ? 0 : 30)
     }
     
-    private func prayercard(name: String, time: String, icon: String, active: Bool) -> some View {
-        HStack(spacing: 16) {
-            ZStack {
-                Circle()
-                    .fill(active ? appcolors.accent.opacity(0.2) : appcolors.surface)
-                    .frame(width: 48, height: 48)
+    private func prayercard(name: String, time: String, icon: String, active: Bool, adhan: Binding<Bool>, showAdhan: Bool = true) -> some View {
+        VStack(spacing: 0) {
+            HStack(spacing: 16) {
+                ZStack {
+                    Circle()
+                        .fill(active ? appcolors.accent.opacity(0.2) : appcolors.surface)
+                        .frame(width: 48, height: 48)
+                    
+                    Image(systemName: icon)
+                        .font(.system(size: 20, weight: .semibold))
+                        .foregroundStyle(active ? appcolors.accent : appcolors.textsecondary)
+                }
                 
-                Image(systemName: icon)
-                    .font(.system(size: 20, weight: .semibold))
-                    .foregroundStyle(active ? appcolors.accent : appcolors.textsecondary)
+                Text(name)
+                    .font(.system(size: 18, weight: active ? .bold : .semibold, design: .rounded))
+                    .foregroundStyle(active ? appcolors.text : appcolors.textsecondary)
+                
+                Spacer()
+                
+                Text(time.components(separatedBy: " ").first ?? time)
+                    .font(.system(size: 20, weight: .bold, design: .rounded))
+                    .foregroundStyle(active ? appcolors.accent : appcolors.text)
+                    .monospacedDigit()
             }
+            .padding(16)
             
-            Text(name)
-                .font(.system(size: 18, weight: active ? .bold : .semibold, design: .rounded))
-                .foregroundStyle(active ? appcolors.text : appcolors.textsecondary)
-            
-            Spacer()
-            
-            Text(time.components(separatedBy: " ").first ?? time)
-                .font(.system(size: 20, weight: .bold, design: .rounded))
-                .foregroundStyle(active ? appcolors.accent : appcolors.text)
-                .monospacedDigit()
+            if showAdhan {
+                Divider()
+                    .background(Color.white.opacity(0.1))
+                    .padding(.horizontal, 16)
+                
+                HStack(spacing: 12) {
+                    Image(systemName: "bell.fill")
+                        .font(.system(size: 14, weight: .semibold))
+                        .foregroundStyle(adhan.wrappedValue ? appcolors.accent : appcolors.texttertiary)
+                    
+                    Text("Adhan Notification")
+                        .font(.system(size: 14, weight: .medium, design: .rounded))
+                        .foregroundStyle(appcolors.textsecondary)
+                    
+                    Spacer()
+                    
+                    Toggle("", isOn: adhan)
+                        .labelsHidden()
+                        .tint(appcolors.accent)
+                        .onChange(of: adhan.wrappedValue) { _ in
+                            settings.save()
+                            Task {
+                                await vm.schedulenotifications()
+                            }
+                        }
+                }
+                .padding(.horizontal, 16)
+                .padding(.vertical, 12)
+            }
         }
-        .padding(16)
         .background(
             RoundedRectangle(cornerRadius: 16)
                 .fill(active ? appcolors.accent.opacity(0.05) : Color.clear)

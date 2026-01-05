@@ -77,6 +77,9 @@ struct prayersettingsview: View {
                 Toggle("", isOn: adhan)
                     .tint(appcolors.accent)
                     .labelsHidden()
+                    .onChange(of: adhan.wrappedValue) { _ in
+                        settings.save()
+                    }
             }
             
             Divider()

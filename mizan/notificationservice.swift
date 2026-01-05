@@ -22,15 +22,18 @@ class notificationservice {
     func schedule(prayers: prayertimings) async {
         UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
         
-        let prayerlist: [(String, String)] = [
-            ("Fajr", prayers.Fajr),
-            ("Dhuhr", prayers.Dhuhr),
-            ("Asr", prayers.Asr),
-            ("Maghrib", prayers.Maghrib),
-            ("Isha", prayers.Isha)
+        let settings = prayersettings.load()
+        
+        let prayerlist: [(String, String, Bool)] = [
+            ("Fajr", prayers.Fajr, settings.fajradhan),
+            ("Dhuhr", prayers.Dhuhr, settings.dhuhradhan),
+            ("Asr", prayers.Asr, settings.asradhan),
+            ("Maghrib", prayers.Maghrib, settings.maghribadhan),
+            ("Isha", prayers.Isha, settings.ishaadhan)
         ]
         
-        for (name, timestring) in prayerlist {
+        for (name, timestring, enabled) in prayerlist {
+            guard enabled else { continue }
             if let prayertime = parseprayer(timestring) {
                 let content = UNMutableNotificationContent()
                 content.title = "Time for \(name)"
