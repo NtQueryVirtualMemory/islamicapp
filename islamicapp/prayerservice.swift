@@ -5,14 +5,16 @@ class prayerservice {
     private init() {}
     
     func locate() async throws -> locationdata {
-        let url = URL(string: "https://ipinfo.io/json")!
+        guard let url = URL(string: "https://ipinfo.io/json") else {
+            throw URLError(.badURL)
+        }
         let (data, _) = try await URLSession.shared.data(from: url)
         return try JSONDecoder().decode(locationdata.self, from: data)
     }
     
-    func fetch(city: String, country: String) async throws -> prayerdata {
+    func fetch(city: String, country: String, method: Int = 2) async throws -> prayerdata {
         let address = "\(city), \(country)".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
-        let urlstring = "https://api.aladhan.com/v1/timingsByAddress?address=\(address)&method=2"
+        let urlstring = "https://api.aladhan.com/v1/timingsByAddress?address=\(address)&method=\(method)"
         guard let url = URL(string: urlstring) else {
             throw URLError(.badURL)
         }

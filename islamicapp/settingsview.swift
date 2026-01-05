@@ -2,7 +2,7 @@ import SwiftUI
 
 struct settingsview: View {
     @AppStorage("notifications") private var notifications = true
-    @AppStorage("calcmethod") private var calcmethod = "MWL"
+    @AppStorage("calculationmethod") private var calculationmethod = 3
     @AppStorage("asrmethod") private var asrmethod = "Standard"
     @State private var appear = false
     
@@ -53,6 +53,57 @@ struct settingsview: View {
         .offset(y: appear ? 0 : 20)
     }
     
+    private var methodpicker: some View {
+        let methods = [(3, "MWL"), (2, "ISNA"), (5, "Egypt"), (4, "Makkah"), (1, "Karachi")]
+        let current = methods.first(where: { $0.0 == calculationmethod })?.1 ?? "MWL"
+        
+        return HStack(spacing: 14) {
+            Image(systemName: "function")
+                .font(.system(size: 18, weight: .semibold))
+                .foregroundStyle(appcolors.accent)
+                .frame(width: 24)
+            
+            VStack(alignment: .leading, spacing: 2) {
+                Text("Method")
+                    .font(.system(size: 16, weight: .semibold, design: .rounded))
+                    .foregroundStyle(appcolors.text)
+                
+                Text("Prayer time calculation")
+                    .font(.system(size: 12, weight: .medium, design: .rounded))
+                    .foregroundStyle(appcolors.texttertiary)
+            }
+            
+            Spacer()
+            
+            Menu {
+                ForEach(methods, id: \.0) { method in
+                    Button {
+                        calculationmethod = method.0
+                    } label: {
+                        HStack {
+                            Text(method.1)
+                            if calculationmethod == method.0 {
+                                Image(systemName: "checkmark")
+                            }
+                        }
+                    }
+                }
+            } label: {
+                HStack(spacing: 4) {
+                    Text(current)
+                        .font(.system(size: 14, weight: .medium, design: .rounded))
+                        .foregroundStyle(appcolors.textsecondary)
+                    
+                    Image(systemName: "chevron.up.chevron.down")
+                        .font(.system(size: 10, weight: .bold))
+                        .foregroundStyle(appcolors.texttertiary)
+                }
+            }
+        }
+        .padding(.horizontal, 16)
+        .padding(.vertical, 14)
+    }
+    
     private var settingslist: some View {
         VStack(spacing: 24) {
             settingsgroup(title: "Notifications") {
@@ -68,13 +119,7 @@ struct settingsview: View {
             }
             
             settingsgroup(title: "Calculation") {
-                settingspicker(
-                    title: "Method",
-                    subtitle: "Prayer time calculation",
-                    icon: "function",
-                    selection: $calcmethod,
-                    options: ["MWL", "ISNA", "Egypt", "Makkah", "Karachi"]
-                )
+                methodpicker
                 
                 Divider()
                     .background(Color.white.opacity(0.1))

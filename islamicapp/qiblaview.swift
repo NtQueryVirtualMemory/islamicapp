@@ -114,15 +114,6 @@ struct qiblaview: View {
                     Circle()
                         .stroke(appcolors.accent, lineWidth: 3)
                 )
-            
-            Image("kaaba")
-                .resizable()
-                .scaledToFit()
-                .frame(width: 40, height: 40)
-                .opacity(0.8)
-                .offset(y: -35)
-                .rotationEffect(.degrees(rotation))
-                .animation(.spring(response: 0.4, dampingFraction: 0.7), value: rotation)
         }
         .opacity(appear ? 1 : 0)
         .scaleEffect(appear ? 1 : 0.9)

@@ -9,15 +9,28 @@ class audioservice: ObservableObject {
     
     private var player: AVPlayer?
     
+    private init() {
+        setupaudiosession()
+    }
+    
+    private func setupaudiosession() {
+        do {
+            try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default)
+            try AVAudioSession.sharedInstance().setActive(true)
+        } catch {
+            print("audio session error: \(error)")
+        }
+    }
+    
     func play(url: String) {
-        guard let audiourl = URL(string: url) else { return }
+        guard let audiourl = URL(string: url) else {
+            print("invalid audio url: \(url)")
+            return
+        }
         
         stop()
         
         player = AVPlayer(url: audiourl)
-        player?.play()
-        playing = true
-        currenturl = url
         
         NotificationCenter.default.addObserver(
             forName: .AVPlayerItemDidPlayToEndTime,
@@ -26,6 +39,10 @@ class audioservice: ObservableObject {
         ) { [weak self] _ in
             self?.stop()
         }
+        
+        player?.play()
+        playing = true
+        currenturl = url
     }
     
     func stop() {

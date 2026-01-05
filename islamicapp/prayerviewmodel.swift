@@ -17,7 +17,8 @@ class prayerviewmodel: ObservableObject {
         loading = true
         do {
             let loc = try await prayerservice.shared.locate()
-            let data = try await prayerservice.shared.fetch(city: loc.city, country: loc.country)
+            let method = UserDefaults.standard.integer(forKey: "calculationmethod")
+            let data = try await prayerservice.shared.fetch(city: loc.city, country: loc.country, method: method == 0 ? 2 : method)
             timings = data.timings
             hijri = "\(data.date.hijri.day) \(data.date.hijri.month.en) \(data.date.hijri.year)"
             location = "\(loc.city), \(loc.country)"
