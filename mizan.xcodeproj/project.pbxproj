@@ -119,7 +119,7 @@
 			);
 			dependencies = (
 			);
-			name = islamicapp;
+			name = mizan;
 			productName = islamicapp;
 			productReference = P10001;
 			productType = "com.apple.product-type.application";
@@ -370,7 +370,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		CL0001 /* Build configuration list for PBXNativeTarget "islamicapp" */ = {
+		CL0001 /* Build configuration list for PBXNativeTarget "mizan" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				BC0003,
