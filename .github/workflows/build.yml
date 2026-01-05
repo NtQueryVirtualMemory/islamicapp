@@ -15,7 +15,7 @@ jobs:
     - name: set up xcode
       uses: maxim-lobanov/setup-xcode@v1
       with:
-        xcode-version: '15.4'
+        xcode-version: 'latest-stable'
         
     - name: build ipa
       run: |
