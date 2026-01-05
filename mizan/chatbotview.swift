@@ -5,6 +5,7 @@ struct chatbotview: View {
     @State private var inputText = ""
     @State private var appear = false
     @FocusState private var inputFocused: Bool
+    @State private var keyboardHeight: CGFloat = 0
     
     var body: some View {
         ZStack {
@@ -51,6 +52,10 @@ struct chatbotview: View {
             withAnimation(.spring(response: 0.6, dampingFraction: 0.8)) {
                 appear = true
             }
+            setupKeyboardObservers()
+        }
+        .onDisappear {
+            removeKeyboardObservers()
         }
     }
     
@@ -260,8 +265,9 @@ struct chatbotview: View {
         }
         .padding(.horizontal, 20)
         .padding(.vertical, 12)
-        .padding(.bottom, 100)
+        .padding(.bottom, max(100, keyboardHeight + 20))
         .background(.ultraThinMaterial)
+        .animation(.easeOut(duration: 0.25), value: keyboardHeight)
     }
     
     private func sendMessage() {
@@ -280,5 +286,22 @@ struct chatbotview: View {
         let formatter = DateFormatter()
         formatter.timeStyle = .short
         return formatter.string(from: date)
+    }
+    
+    private func setupKeyboardObservers() {
+        NotificationCenter.default.addObserver(forName: UIResponder.keyboardWillShowNotification, object: nil, queue: .main) { notification in
+            if let keyboardFrame = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect {
+                keyboardHeight = keyboardFrame.height
+            }
+        }
+        
+        NotificationCenter.default.addObserver(forName: UIResponder.keyboardWillHideNotification, object: nil, queue: .main) { _ in
+            keyboardHeight = 0
+        }
+    }
+    
+    private func removeKeyboardObservers() {
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
     }
 }

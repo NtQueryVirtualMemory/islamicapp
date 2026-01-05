@@ -71,7 +71,8 @@ Always provide responses with respect and accuracy. When citing Quran or Hadith,
                 saveMessages()
             }
         } catch {
-            let errorMessage = chatmessage(role: "assistant", content: "Sorry, I encountered an error. Please try again.")
+            print("Chatbot error: \(error)")
+            let errorMessage = chatmessage(role: "assistant", content: "Sorry, I encountered an error: \(error.localizedDescription). Please check your internet connection and try again.")
             
             await MainActor.run {
                 messages.append(errorMessage)
@@ -105,16 +106,34 @@ Always provide responses with respect and accuracy. When citing Quran or Hadith,
         
         request.httpBody = try JSONSerialization.data(withJSONObject: body)
         
-        let (data, _) = try await URLSession.shared.data(for: request)
+        let (data, response) = try await URLSession.shared.data(for: request)
         
-        if let json = try? JSONSerialization.jsonObject(with: data) as? [String: Any],
-           let choices = json["choices"] as? [[String: Any]],
-           let firstChoice = choices.first,
-           let message = firstChoice["message"] as? [String: Any],
-           let content = message["content"] as? String {
-            return content
+        // Log response for debugging
+        if let httpResponse = response as? HTTPURLResponse {
+            print("API Status: \(httpResponse.statusCode)")
         }
         
-        throw NSError(domain: "ChatbotError", code: -1, userInfo: [NSLocalizedDescriptionKey: "Failed to parse response"])
+        if let responseString = String(data: data, encoding: .utf8) {
+            print("API Response: \(responseString)")
+        }
+        
+        guard let json = try? JSONSerialization.jsonObject(with: data) as? [String: Any] else {
+            throw NSError(domain: "ChatbotError", code: -1, userInfo: [NSLocalizedDescriptionKey: "Invalid JSON response"])
+        }
+        
+        // Check for API error
+        if let error = json["error"] as? [String: Any],
+           let message = error["message"] as? String {
+            throw NSError(domain: "ChatbotError", code: -1, userInfo: [NSLocalizedDescriptionKey: "API Error: \(message)"])
+        }
+        
+        guard let choices = json["choices"] as? [[String: Any]],
+              let firstChoice = choices.first,
+              let message = firstChoice["message"] as? [String: Any],
+              let content = message["content"] as? String else {
+            throw NSError(domain: "ChatbotError", code: -1, userInfo: [NSLocalizedDescriptionKey: "Failed to parse response"])
+        }
+        
+        return content
     }
 }
