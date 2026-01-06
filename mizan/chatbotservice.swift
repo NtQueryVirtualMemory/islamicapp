@@ -21,7 +21,7 @@ class chatbotservice: ObservableObject {
     @Published var messages: [chatmessage] = []
     @Published var loading = false
     
-    private let apikey = "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"
+    private let apikey = "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"
     private let model = "nvidia/nemotron-3-nano-30b-a3b:free"
     private let systemPrompt = """
 You are an Islamic knowledge assistant. You provide accurate, respectful, and helpful information about Islam, including:
